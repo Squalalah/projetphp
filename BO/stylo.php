@@ -11,7 +11,6 @@ class Stylo extends Produit
     parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd = '');
     $this->setCouleur($couleur);
     $this->setTypeMine($typeMine);
-    $this->setRefProd($refProd);
   }
 
   //  STYLO
@@ -26,7 +25,7 @@ class Stylo extends Produit
     $this->couleur = $couleur;
   }
 
-  public function getTYpeMine()
+  public function getTypeMine()
   {
     return $this->typeMine;
   }
