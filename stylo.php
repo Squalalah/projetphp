@@ -1,15 +1,17 @@
 <?php
 
-class Stylo
+require_once ('produit.php');
 
+class Stylo extends Produit
 {
   private $couleur;
   private $typeMine;
   
-  public function __construct(string $uneCouleur, string $unTypeMine)
+  public function __construct(string $couleur, string $typeMine, $refProd='')
   {
-    $this->setCouleur($uneCouleur);
-    $this->setTypeMine($unTypeMine);
+    $this->setCouleur($couleur);
+    $this->setTypeMine($typeMine);
+    $this->setRefProd($refProd);
   }
 
   public function getCouleur()
@@ -17,9 +19,9 @@ class Stylo
     return $this->couleur;
   }
 
-  public function setCouleur(string $uneCouleur)
+  public function setCouleur(string $couleur)
   {
-    $this->couleur = $uneCouleur;
+    $this->couleur = $couleur;
   }
 
   public function getTYpeMine()
@@ -27,9 +29,19 @@ class Stylo
     return $this->typeMine;
   }
 
-  public function setTypeMine(string $unTypeMine)
+  public function setTypeMine(string $typeMine)
   {
-    $this->typeMine = $unTypeMine;
+    $this->typeMine = $typeMine;
+  }
+
+  public function getRefprod()
+  {
+      return $this->refProd;
+  }
+
+  public function setRefProd($refProd)
+  {
+      $this->refProd = $refProd;
   }
 
 }
