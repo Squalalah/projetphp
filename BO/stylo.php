@@ -1,7 +1,6 @@
 <?php
 
-require_once ('produit.php');
-
+require_once('produit.php');
 class Stylo extends Produit
 {
   private $couleur;
