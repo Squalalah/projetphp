@@ -31,5 +31,5 @@ produit_type :
 git checkout -b "nom de la branche à créer"
 
 
-Pour push une branche, suivre la méthode pour "Envoyer ses données sur le serveur"
-La pull request se créera toute seule, et sera gérable depuis GitHub directement.
+<p>Pour push une branche, suivre la méthode pour "Envoyer ses données sur le serveur"</p>
+<p>La pull request se créera toute seule, et sera gérable depuis GitHub directement.</p>
