@@ -1,3 +1,7 @@
+Projet PHP d'Aurelie, Vincent et Anthony, car nous avons une passion pour la collaboration.
+
+***
+
 ## 1/ Documentation SQL
 
 produit_type : 
