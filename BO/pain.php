@@ -1,13 +1,13 @@
 <?php
 
 require_once('produitPerissable.php');
-class Pain extends produitPerissable
+class Pain extends ProduitPerissable
 {
     private $poids;
 
-    public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $poids, $refProd = '')
+    public function __construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $poids, $refProd = '')
     {
-        parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd = '');
+        parent::__construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $refProd);
         $this->poids = $poids;
     }
 
