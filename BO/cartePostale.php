@@ -5,6 +5,7 @@ require_once('produit.php');
 class CartePostale extends Produit
 {
     private $type;
+    private $lesAuteurs;
 
     public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd = '')
     {
@@ -22,5 +23,10 @@ class CartePostale extends Produit
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    public function ajouterAuteur($lesAuteurs)
+    {
+        $this->lesAuteurs[] = $lesAuteurs;
     }
 }
