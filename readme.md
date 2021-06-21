@@ -35,6 +35,10 @@ produit_type :
 
 + git checkout -b "nom de la branche à créer"
 
+### 6- Annuler les modifications en cours (en cas de conflit de pull)
+
++ git merge --abort
++ faire le point ensemble sur la situation
 
 <p>Pour push une branche, suivre la méthode pour "Envoyer ses données sur le serveur"</p>
 <p>La pull request se créera toute seule, et sera gérable depuis GitHub directement.</p>
