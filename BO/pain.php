@@ -1,5 +1,6 @@
 <?php
 
+require_once('produit.php');
 class Pain extends Produit
 {
     private $poids;
