@@ -6,6 +6,7 @@ produit_type :
 + 3 = Pain
 + 4 = Carte Postal
 
+***
 
 ## 2/ Documentation GIT
 
