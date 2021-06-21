@@ -27,7 +27,7 @@ class Stylo
     return $this->typeMine;
   }
 
-  public function setTypeMine(int $unTypeMine)
+  public function setTypeMine(string $unTypeMine)
   {
     $this->typeMine = $unTypeMine;
   }
