@@ -28,7 +28,7 @@ produit_type :
 
 ### 5- Créer une branche ET se positionner dessus :
 
-git checkout -b "nom de la branche à créer"
++ git checkout -b "nom de la branche à créer"
 
 
 <p>Pour push une branche, suivre la méthode pour "Envoyer ses données sur le serveur"</p>
