@@ -2,14 +2,13 @@
 
 abstract class Produit
 {
-    protected $refProd;
+    protected $refProd; // stocke l'ID SQL
     protected $libelle;
     protected $marque;
     protected $prixUnitaire;
     protected $qteStock;
-    protected $produitId;
 
-    protected function __construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd, $produitId)
+    protected function __construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd)
     {
         $this->refProd = $refProd;
         $this->libelle = $libelle;

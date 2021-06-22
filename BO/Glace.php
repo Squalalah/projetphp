@@ -6,9 +6,9 @@ class Glace extends Produit
   private $parfum;
   private $temperatureConservation;
   
-  public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $parfum, $temperatureConservation, $refProd='', $produitId = '')
+  public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $parfum, $temperatureConservation, $refProd='')
   {
-    parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd, $produitId);
+    parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd);
     $this->setParfum($parfum);
     $this->setTemperatureConservation($temperatureConservation);
   }
