@@ -60,7 +60,7 @@ class Achat
         /* @var Ligne $ligne */
         foreach($this->lesLignes as $ligne)
         {
-            $total += $ligne->getQuantite()*$ligne->getRefProd()->getPrixUnitaire();
+            $total += $ligne->getPrix();
         }
         return $total;
     }
@@ -82,6 +82,6 @@ class Achat
     }
 
     public function toString() {
-        
+        return $this->montant.' '.$this->lesLignes. ' '.$this->achatId;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+require_once('Produit.php');
 class Ligne
 {
   private $quantite;
@@ -42,12 +43,21 @@ class Ligne
     return $this->refProd;
   }
 
+  public function getPrix() {
+    /* @var Produit getRefProd() */
+      return $this->getRefProd()->getPrixUnitaire()*$this->getQuantite();
+  }
+
   /**
    * @param mixed $refProd
    */
-  public function setRefProd($refProd): void
+  public function setProduit($produit): void
   {
-    $this->refProd = $refProd;
+    $this->refProd = $produit;
+  }
+
+  public function toString() {
+
   }
 
 }
