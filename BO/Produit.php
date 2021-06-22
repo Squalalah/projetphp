@@ -15,7 +15,6 @@ abstract class Produit
         $this->marque = $marque;
         $this->prixUnitaire = $prixUnitaire;
         $this->qteStock = $qteStock;
-        $this->produitId = $produitId;
     }
 
     // LIBELLE

@@ -8,7 +8,7 @@ class Stylo extends Produit
   
   public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $couleur, $typeMine, $refProd='')
   {
-    parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd = '');
+    parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd);
     $this->setCouleur($couleur);
     $this->setTypeMine($typeMine);
   }
