@@ -77,17 +77,4 @@ abstract class Produit
         $this->refProd = $refProd;
     }
 
-    // ID
-
-    public function getProduitId()
-    {
-        return $this->produitId;
-    }
-
-    public function setProduitId($produitId)
-    {
-        $this->produitId = $produitId;
-    }
-
-
 }
