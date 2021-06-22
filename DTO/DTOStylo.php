@@ -1,18 +1,18 @@
 <?php
 
-require_once('Stylo.php');
+require_once('../../BO/Stylo.php');
 class DTOStylo
 {
 	public static function selectById($refProd)
 	{
 		try {
 			$maCo=self::getBdd();
-			$req="select * from produit where produit_id=? AND produit_type = 1";
+			$req="select * from produit where refProd=? AND type=1";
 			$prep=$maCo->prepare($req);
 			$prep->bindParam(1,$refProd,PDO::PARAM_INT); 
 			$prep->execute(); 
 			$mesDataProduit=$prep->fetchObject();
-			$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
+			$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
 			$mesDataProduit->couleur,$mesDataProduit->typeMine,$mesDataProduit->refProd);
 		} 
 		catch (PDOException $e) 
@@ -27,11 +27,11 @@ class DTOStylo
 	{
 		try {
 			$maCo=self::getBdd();
-			$req="select * from produit where produit_type = 1";
+			$req="select * from produit where type = 1";
 			$resultat=$maCo->query($req);
 			while($mesDataProduit=$resultat->fetchObject())
 			{
-				$lesStylos[]=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
+				$lesStylos[]=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock, $mesDataProduit->type,
 				$mesDataProduit->couleur,$mesDataProduit->typeMine,$mesDataProduit->refProd);	
 			}
 		}
