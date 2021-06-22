@@ -1,13 +1,9 @@
--- noinspection SqlDialectInspectionForFile
-
--- noinspection SqlNoDataSourceInspectionForFile
-
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 21 juin 2021 à 12:59
+-- Généré le : mar. 22 juin 2021 à 09:17
 -- Version du serveur : 5.7.32
 -- Version de PHP : 8.0.0
 
@@ -16,6 +12,12 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS projetphp;
 CREATE DATABASE projetphp;
 USE projetphp;
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données : `projetphp`
@@ -28,15 +30,15 @@ USE projetphp;
 --
 
 CREATE TABLE `Achat` (
-                         `Achat_id` bigint(20) NOT NULL,
-                         `Achat_montant` int(11) NOT NULL
+                         `id` bigint(20) NOT NULL,
+                         `montant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Achat`
 --
 
-INSERT INTO `Achat` (`Achat_id`, `Achat_montant`) VALUES
+INSERT INTO `Achat` (`id`, `montant`) VALUES
 (1, 200);
 
 -- --------------------------------------------------------
@@ -46,16 +48,16 @@ INSERT INTO `Achat` (`Achat_id`, `Achat_montant`) VALUES
 --
 
 CREATE TABLE `Auteur` (
-                          `auteur_id` bigint(11) NOT NULL,
-                          `auteur_prenom` varchar(50) NOT NULL,
-                          `auteur_nom` varchar(50) NOT NULL
+                          `id` bigint(11) NOT NULL,
+                          `prenom` varchar(50) NOT NULL,
+                          `nom` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Auteur`
 --
 
-INSERT INTO `Auteur` (`auteur_id`, `auteur_prenom`, `auteur_nom`) VALUES
+INSERT INTO `Auteur` (`id`, `prenom`, `nom`) VALUES
 (1, 'Aurelie', 'Bonjour');
 
 -- --------------------------------------------------------
@@ -65,7 +67,7 @@ INSERT INTO `Auteur` (`auteur_id`, `auteur_prenom`, `auteur_nom`) VALUES
 --
 
 CREATE TABLE `Auteur_has_CP` (
-                                 `auteurhascp_id` bigint(20) NOT NULL,
+                                 `id` bigint(20) NOT NULL,
                                  `auteur_id` bigint(20) NOT NULL,
                                  `produit_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -74,7 +76,7 @@ CREATE TABLE `Auteur_has_CP` (
 -- Déchargement des données de la table `Auteur_has_CP`
 --
 
-INSERT INTO `Auteur_has_CP` (`auteurhascp_id`, `auteur_id`, `produit_id`) VALUES
+INSERT INTO `Auteur_has_CP` (`id`, `auteur_id`, `produit_id`) VALUES
 (1, 1, 4);
 
 -- --------------------------------------------------------
@@ -84,8 +86,8 @@ INSERT INTO `Auteur_has_CP` (`auteurhascp_id`, `auteur_id`, `produit_id`) VALUES
 --
 
 CREATE TABLE `Ligne` (
-                         `ligne_id` bigint(20) NOT NULL,
-                         `ligne_quantite` int(11) NOT NULL,
+                         `id` bigint(20) NOT NULL,
+                         `quantite` int(11) NOT NULL,
                          `produit_id` bigint(20) NOT NULL,
                          `achat_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -94,7 +96,7 @@ CREATE TABLE `Ligne` (
 -- Déchargement des données de la table `Ligne`
 --
 
-INSERT INTO `Ligne` (`ligne_id`, `ligne_quantite`, `produit_id`, `achat_id`) VALUES
+INSERT INTO `Ligne` (`id`, `quantite`, `produit_id`, `achat_id`) VALUES
 (1, 10, 4, 1);
 
 -- --------------------------------------------------------
@@ -104,30 +106,31 @@ INSERT INTO `Ligne` (`ligne_id`, `ligne_quantite`, `produit_id`, `achat_id`) VAL
 --
 
 CREATE TABLE `Produit` (
-                           `produit_id` bigint(20) NOT NULL,
-                           `produit_libelle` varchar(50) NOT NULL,
-                           `produit_marque` varchar(50) NOT NULL,
-                           `produit_prixUnitaire` float NOT NULL,
-                           `produit_qteStock` bigint(20) NOT NULL,
-                           `produit_type` tinyint(4) NOT NULL,
-                           `produit_dateLimiteConso` date DEFAULT NULL,
-                           `produit_poids` int(11) DEFAULT NULL,
-                           `produit_couleur` varchar(50) DEFAULT NULL,
-                           `produit_typeMine` varchar(50) DEFAULT NULL,
-                           `produit_parfum` varchar(50) DEFAULT NULL,
-                           `produit_temperature` int(11) DEFAULT NULL,
-                           `produit_typeCP` varchar(50) DEFAULT NULL
+                           `refProd` bigint(20) NOT NULL,
+                           `libelle` varchar(50) NOT NULL,
+                           `marque` varchar(50) NOT NULL,
+                           `prixUnitaire` float NOT NULL,
+                           `qteStock` bigint(20) NOT NULL,
+                           `type` tinyint(4) NOT NULL,
+                           `dateLimiteConso` date DEFAULT NULL,
+                           `poids` int(11) DEFAULT NULL,
+                           `couleur` varchar(50) DEFAULT NULL,
+                           `typeMine` varchar(50) DEFAULT NULL,
+                           `parfum` varchar(50) DEFAULT NULL,
+                           `temperature` int(11) DEFAULT NULL,
+                           `typeCP` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Produit`
 --
 
-INSERT INTO `Produit` (`produit_id`, `produit_libelle`, `produit_marque`, `produit_prixUnitaire`, `produit_qteStock`, `produit_type`, `produit_dateLimiteConso`, `produit_poids`, `produit_couleur`, `produit_typeMine`, `produit_parfum`, `produit_temperature`, `produit_typeCP`) VALUES
+INSERT INTO `Produit` (`refProd`, `libelle`, `marque`, `prixUnitaire`, `qteStock`, `type`, `dateLimiteConso`, `poids`, `couleur`, `typeMine`, `parfum`, `temperature`, `typeCP`) VALUES
 (1, 'Pain au chocolat', 'Haribo', 5.45, 200, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
 (2, 'Glace à la menthe', 'Fantasy', 1.86, 15, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
 (3, 'Stylo', 'Bic', 5.87, 234, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
-(4, 'Carte Postale', 'Gouvernement', 1.65, 200, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances');
+(4, 'Carte Postale', 'Gouvernement', 1.65, 200, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
+(5, 'Stylo', 'MontBlanc', 20.99, 120, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -137,19 +140,19 @@ INSERT INTO `Produit` (`produit_id`, `produit_libelle`, `produit_marque`, `produ
 -- Index pour la table `Achat`
 --
 ALTER TABLE `Achat`
-    ADD PRIMARY KEY (`Achat_id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `Auteur`
 --
 ALTER TABLE `Auteur`
-    ADD PRIMARY KEY (`auteur_id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `Auteur_has_CP`
 --
 ALTER TABLE `Auteur_has_CP`
-    ADD PRIMARY KEY (`auteurhascp_id`),
+    ADD PRIMARY KEY (`id`),
   ADD KEY `indexauteur` (`auteur_id`),
   ADD KEY `indexProduit` (`produit_id`);
 
@@ -157,7 +160,7 @@ ALTER TABLE `Auteur_has_CP`
 -- Index pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
-    ADD PRIMARY KEY (`ligne_id`),
+    ADD PRIMARY KEY (`id`),
   ADD KEY `produit_id` (`produit_id`),
   ADD KEY `achat_id` (`achat_id`);
 
@@ -165,7 +168,7 @@ ALTER TABLE `Ligne`
 -- Index pour la table `Produit`
 --
 ALTER TABLE `Produit`
-    ADD PRIMARY KEY (`produit_id`);
+    ADD PRIMARY KEY (`refProd`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -175,31 +178,31 @@ ALTER TABLE `Produit`
 -- AUTO_INCREMENT pour la table `Achat`
 --
 ALTER TABLE `Achat`
-    MODIFY `Achat_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Auteur`
 --
 ALTER TABLE `Auteur`
-    MODIFY `auteur_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+    MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Auteur_has_CP`
 --
 ALTER TABLE `Auteur_has_CP`
-    MODIFY `auteurhascp_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
-    MODIFY `ligne_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Produit`
 --
 ALTER TABLE `Produit`
-    MODIFY `produit_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+    MODIFY `refProd` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
@@ -209,12 +212,16 @@ ALTER TABLE `Produit`
 -- Contraintes pour la table `Auteur_has_CP`
 --
 ALTER TABLE `Auteur_has_CP`
-    ADD CONSTRAINT `AuteurHasCP` FOREIGN KEY (`auteur_id`) REFERENCES `Auteur` (`auteur_id`),
-  ADD CONSTRAINT `ProduitHasCP` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`produit_id`);
+    ADD CONSTRAINT `AuteurHasCP` FOREIGN KEY (`auteur_id`) REFERENCES `Auteur` (`id`),
+  ADD CONSTRAINT `ProduitHasCP` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
 
 --
 -- Contraintes pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
-    ADD CONSTRAINT `ligne_ibfk_1` FOREIGN KEY (`achat_id`) REFERENCES `Achat` (`Achat_id`),
-  ADD CONSTRAINT `ligne_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`produit_id`);
+    ADD CONSTRAINT `ligne_ibfk_1` FOREIGN KEY (`achat_id`) REFERENCES `Achat` (`id`),
+  ADD CONSTRAINT `ligne_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
