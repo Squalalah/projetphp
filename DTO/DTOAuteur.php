@@ -3,7 +3,7 @@
     require_once('../../BO/Auteur.php');
     require_once('../../BO/CartePostale.php');
 
-    class DTOAuteur
+    class DTOAuteur implements SELECT
     {
         public static function selectById($id)
         {

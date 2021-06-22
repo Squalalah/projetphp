@@ -2,7 +2,7 @@
 
     require_once('../../BO/CartePostale.php');
 
-    class DTOCartePostale
+    class DTOCartePostale implements SELECT
     {
         public static function selectById($refProd)
         {

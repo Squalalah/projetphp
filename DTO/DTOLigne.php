@@ -13,13 +13,12 @@ class DTOLigne implements CRD
             $req='INSERT INTO Ligne (quantite, produit_id, panier_id) VALUES (?,?,?)';
             $prep=$maCo->prepare($req);
             $quantite = $data->getQuantite();
-            $panierId = $data->getPanierId();
-            $produitId = $data->getRefProd();
+            $produitId = $data->getProduit()->getRefprod();
+            $panierId = $data->getPanier()->getPanierId();
             $prep->bindParam(1, $quantite, PDO::PARAM_INT);
             $prep->bindParam(2, $produitId, PDO::PARAM_INT);
             $prep->bindParam(3, $panierId, PDO::PARAM_INT);
             $prep->execute();
-            $data->setLigneId($maCo->lastInsertId());
         }
         catch (PDOException $e)
         {
@@ -27,14 +26,16 @@ class DTOLigne implements CRD
             die();
         }
     }
-    public static function delete($panierId, $refProd = '')
+    public static function delete($panier, $produit ='')
     {
         try {
             $maCo=self::getBdd();
             $req='DELETE from Ligne WHERE panier_id = ? AND produit_id = ?';
             $prep=$maCo->prepare($req);
+            $panierId = $panier->getPanierId();
+            $produitId = $produit->getRefprod();
             $prep->bindParam(1,$panierId,PDO::PARAM_INT);
-            $prep->bindParam(2, $refProd, PDO::PARAM_INT);
+            $prep->bindParam(2, $produitId, PDO::PARAM_INT);
             $prep->execute();
 
             

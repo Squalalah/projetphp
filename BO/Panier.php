@@ -50,9 +50,14 @@ class Panier
         }
     }
 
-    public function supprimeLigne($index) {
-        if(array_key_exists($index, $this->lesLignes))
-            unset($this->lesLignes[$index]);
+    public function supprimeLigne($objet) {
+        foreach($this->lesLignes as $ligne)
+        {
+            if($ligne === $objet)
+            {
+                unset($ligne);
+            }
+        }
     }
 
     public function calculMontant() {
@@ -62,7 +67,7 @@ class Panier
         {
             $total += $ligne->getPrix();
         }
-        return $total;
+        $this->setMontant($total);
     }
 
     /**

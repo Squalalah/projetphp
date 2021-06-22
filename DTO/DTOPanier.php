@@ -36,7 +36,6 @@ class DTOPanier implements CUD
 			$maCo=self::getBdd();
 			$req="UPDATE panier set montant = ? WHERE id=?";
 			$prep=$maCo->prepare($req);
-			$prep=$maCo->prepare($req);
 			$id=$data->getPanierId();
 			$montant=$data->getMontant();
 			$prep->bindParam(1,$montant);

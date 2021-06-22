@@ -4,14 +4,14 @@ require_once('Ligne.php');
 class Ligne
 {
   private $quantite;
-  private $panierId;
-  private $ligneId;
-  private $refProd;
+  private $Panier;
+  private $Produit;
   
-  public function __construct($quantite, $panierId='', $ligneId='', $refProd='')
+  public function __construct($quantite, $panier, $produit)
   {
     $this->setQuantite($quantite);
-    $this->setPanierId($panierId);
+    $this->setPanier($panier);
+    $this->setProduit($produit);
   }
 
   public function getQuantite()
@@ -24,27 +24,17 @@ class Ligne
     $this->quantite = $quantite;
   }
 
-  public function getLigneId()
-  {
-    return $this->ligneId;
-  }
-
-  public function setLigneId($ligneId)
-  {
-    $this->ligneId = $ligneId;
-  }
-
   /**
    * @return mixed
    */
-  public function getRefProd()
+  public function getProduit()
   {
-    return $this->refProd;
+    return $this->Produit;
   }
 
   public function getPrix() {
     /* @var Produit getRefProd() */
-      return $this->getRefProd()->getPrixUnitaire()*$this->getQuantite();
+      return $this->getProduit()->getPrixUnitaire()*$this->getQuantite();
   }
 
   /**
@@ -52,27 +42,27 @@ class Ligne
    */
   public function setProduit($produit): void
   {
-    $this->refProd = $produit;
+    $this->Produit = $produit;
   }
 
   public function toString() {
-    return ' "'.$this->quantite. '" "'. $this->ligneId. '" "'. $this->refProd.'"';
+    return ' "'.$this->quantite. '" "'. $this->ligneId. '" "'. $this->Produit.'"';
   }
 
   /**
    * @return mixed
    */
-  public function getPanierId()
+  public function getPanier()
   {
-    return $this->panierId;
+    return $this->Panier;
   }
 
   /**
-   * @param mixed $panierId
+   * @param mixed $Panier
    */
-  public function setPanierId($panierId): void
+  public function setPanier($Panier): void
   {
-    $this->panierId = $panierId;
+    $this->Panier = $Panier;
   }
 
 }
