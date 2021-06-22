@@ -6,14 +6,14 @@ interface CRUD {
     public static function update($data);
     public static function delete($data);
     public static function selectAll();
-    public static function selectbyId();
+    public static function selectbyId($data);
 }
 
 interface CRD {
     public static function insert($data);
     public static function selectAll();
     public static function delete($data);
-    public static function selectbyId();
+    public static function selectbyId($data);
 }
 
 interface CUD {
