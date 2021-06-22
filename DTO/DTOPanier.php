@@ -4,7 +4,7 @@
 
 require_once('../../BO/Panier.php');
 require_once('InterfaceDTO.php');
-class DTOPanier implements INSERT
+class DTOPanier implements CUD
 {
 	public static function insert($data)
 	{
@@ -22,12 +22,14 @@ class DTOPanier implements INSERT
 			echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
 			die();
 		}
+
 	}
 
 	private static function getBdd() {
 	require('localData.php');
 	return new PDO($dns,$user,$mdp);
-	}	
+	}
+
 }
 
 ?>
