@@ -2,11 +2,11 @@
 
 require_once('Ligne.php');
 
-class Achat
+class Panier
 {
     private $montant;
     private $lesLignes;
-    private $achatId;
+    private $panierId;
 
     public function __construct($montant)
     {
@@ -68,20 +68,20 @@ class Achat
     /**
      * @return mixed
      */
-    public function getAchatId()
+    public function getPanierId()
     {
-        return $this->achatId;
+        return $this->panierId;
     }
 
     /**
-     * @param mixed $achatId
+     * @param mixed $panierId
      */
-    public function setAchatId($achatId): void
+    public function setPanierId($panierId): void
     {
-        $this->achatId = $achatId;
+        $this->panierId = $panierId;
     }
 
     public function toString() {
-        return '"'.$this->montant.'" "'.$this->lesLignes. '" "'.$this->achatId.'"';
+        return '"'.$this->montant.'" "'.$this->lesLignes. '" "'.$this->panierId.'"';
     }
 }

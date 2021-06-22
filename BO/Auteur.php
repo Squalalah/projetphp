@@ -9,10 +9,11 @@ class Auteur
     private $lesCartes;
     private $auteurId;
 
-    public function __construct($prenom, $nom)
+    public function __construct($prenom, $nom, $auteurId = '-1')
     {
-        $this->prenom = $prenom;
-        $this->nom = $nom;
+        $this->setPrenom($prenom);
+        $this->setNom($nom);
+        $this->setAuteurId($auteurId);
     }
 
     // PRENOM
@@ -31,7 +32,7 @@ class Auteur
 
     public function getNom()
     {
-        $this->nom;
+        return $this->nom;
     }
 
     public function setNom($nom)
