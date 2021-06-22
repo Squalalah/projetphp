@@ -2,25 +2,25 @@
 
 interface CRUD {
 
-    public function insert();
-    public function update();
-    public function delete();
-    public function selectAll();
-    public function selectbyId();
+    public static function insert();
+    public static function update();
+    public static function delete();
+    public static function selectAll();
+    public static function selectbyId();
 }
 
 interface CRD {
-    public function insert();
-    public function selectAll();
-    public function delete();
-    public function selectbyId();
+    public static function insert();
+    public static function selectAll();
+    public static function delete();
+    public static function selectbyId();
 }
 
 interface CUD {
 
     public static function insert($data);
-    public function update();
-    public function delete();
+    public static function update();
+    public static function delete();
 }
 
 interface SELECT {
