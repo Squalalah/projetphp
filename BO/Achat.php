@@ -82,6 +82,6 @@ class Achat
     }
 
     public function toString() {
-        return $this->montant.' '.$this->lesLignes. ' '.$this->achatId;
+        return '"'.$this->montant.'" "'.$this->lesLignes. '" "'.$this->achatId.'"';
     }
 }

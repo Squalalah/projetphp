@@ -57,7 +57,7 @@ class Ligne
   }
 
   public function toString() {
-
+    return ' "'.$this->quantite. '" "'. $this->ligne_id. '" "'. $this->refProd.'"';
   }
 
 }
