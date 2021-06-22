@@ -1,6 +1,6 @@
 <?php
 
-require_once('produit.php');
+require_once('Produit.php');
 class Glace extends Produit
 {
   private $parfum;

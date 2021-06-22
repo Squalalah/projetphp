@@ -1,5 +1,5 @@
 <?php
-require_once('produit.php');
+require_once('Produit.php');
 abstract class ProduitPerissable extends Produit {
 
     protected $dateLimiteConso;

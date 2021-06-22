@@ -1,6 +1,6 @@
 <?php
 
-require_once('cartePostale.php');
+require_once('CartePostale.php');
 
 class Auteur
 {

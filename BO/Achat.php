@@ -1,6 +1,6 @@
 <?php
 
-require_once('ligne.php');
+require_once('Ligne.php');
 
 class Achat
 {

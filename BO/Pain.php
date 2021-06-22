@@ -1,6 +1,6 @@
 <?php
 
-require_once('produitPerissable.php');
+require_once('ProduitPerissable.php');
 class Pain extends ProduitPerissable
 {
     private $poids;
