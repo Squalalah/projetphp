@@ -6,6 +6,15 @@ abstract class ProduitPerissable extends Produit {
 
     public function __construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd) {
         parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd);
-        $this->dateLimiteConso = $dateLimiteConso;
+        $this->setDateLimiteConso($dateLimiteConso);
+    }
+    public function getDateLimiteConso()
+    {
+        return $this->dateLimiteConso;
+    }
+
+    public function setDateLimiteConso($dateLimiteConso)
+    {
+        return $this->$dateLimiteConso;
     }
 }

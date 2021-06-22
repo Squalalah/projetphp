@@ -1,6 +1,6 @@
 <?php
 
-require_once('ProduitPerissable.php.php');
+require_once('ProduitPerissable.php');
 class Glace extends ProduitPerissable
 {
   private $parfum;

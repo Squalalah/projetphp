@@ -10,8 +10,8 @@ interface CRUD {
 }
 
 interface SELECT {
-    public function selectAll();
-    public function selectById();
+    public static function selectAll();
+    public static function selectById($refProd);
 }
 
 interface INSERT {

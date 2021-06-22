@@ -2,7 +2,10 @@
 
 require_once('../DTOStylo.php');
 
-$tousLesStylos=DTOStylo::selectByType();
+
+// Test pour selectionner tous les stylos
+
+$tousLesStylos=DTOStylo::selectAll();
 
 foreach($tousLesStylos as $stylo)
 {
@@ -16,6 +19,9 @@ foreach($tousLesStylos as $stylo)
   echo '<br>';
   echo '----------------------------------------------- <br> ';
 }
+
+
+// Test pour selectionner un stylo par ID
 
 $unStylo=DTOStylo::selectById(3);
 echo 'Stylo numéro ' .$stylo->getRefProd(). '<br>';

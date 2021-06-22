@@ -1,7 +1,8 @@
 <?php
 
 require_once('../../BO/Stylo.php');
-class DTOStylo
+require_once('InterfaceDTO.php');
+class DTOStylo implements SELECT
 {
 	public static function selectById($refProd)
 	{
@@ -12,7 +13,6 @@ class DTOStylo
 			$prep->bindParam(1,$refProd,PDO::PARAM_INT); 
 			$prep->execute(); 
 			$mesDataProduit=$prep->fetchObject();
-
 			$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
 			$mesDataProduit->couleur,$mesDataProduit->typeMine, $mesDataProduit->refProd);
 		} 
@@ -24,7 +24,7 @@ class DTOStylo
 		return $stylo;
 	}
 
-	public static function selectByType()
+	public static function selectAll()
 	{
 		try {
 			$maCo=self::getBdd();
