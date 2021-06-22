@@ -9,6 +9,13 @@ interface CRUD {
     public function selectbyId();
 }
 
+interface CRD {
+    public function insert();
+    public function selectAll();
+    public function delete();
+    public function selectbyId();
+}
+
 interface CUD {
 
     public static function insert($data);
