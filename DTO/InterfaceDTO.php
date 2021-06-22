@@ -1,5 +1,6 @@
 <?php
 
+//Ces interfaces permettent de forcer l'utilisation de fonction avec un nom identique dans les DTO, afin de réduire le risque d'erreur.
 interface CRUD {
 
     public static function insert($Objet);
