@@ -7,12 +7,12 @@ class DTOStylo
 	{
 	try {
 		$maCo=self::getBdd();
-	  $req="select * from produit where produit_id=?";
+	  $req="select * from produit where produit_id=? AND produit_type = 1";
 		$prep=$maCo->prepare($req);
 		$prep->bindParam(1,$refProd,PDO::PARAM_INT); 
 		$prep->execute(); 
 		$mesDataProduit=$prep->fetchObject();
-		$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStocknom,
+		$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
 		$mesDataProduit->couleur,$mesDataProduit->typeMine,$mesDataProduit->refProd);
 		} 
 	catch (PDOException $e) 
@@ -23,7 +23,7 @@ class DTOStylo
 	  return $stylo;
 	}
 	private static function getBdd() {
-	require('./localData.php');
+	require('localData.php');
 	return new PDO($dns,$user,$mdp);
 	}
 }
