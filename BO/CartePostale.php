@@ -4,25 +4,25 @@ require_once('Produit.php');
 
 class CartePostale extends Produit
 {
-    private $type;
+    private $typeCP;
     private $lesAuteurs;
 
-    public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd = '')
+    public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $typeCP, $refProd = '')
     {
-        parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd);
-        $this->type = $type;
+        parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $typeCP, $refProd);
+        $this->typeCP = $typeCP;
     }
 
-    // TYPE
+    // type
 
-    public function getType()
+    public function gettypeCP()
     {
-        return $this->type;
+        return $this->typeCP;
     }
 
-    public function setType($type)
+    public function settypeCP($typeCP)
     {
-        $this->type = $type;
+        $this->typeCP = $typeCP;
     }
 
     public function ajouterAuteur($lesAuteurs)

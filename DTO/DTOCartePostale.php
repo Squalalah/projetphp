@@ -27,7 +27,7 @@
             return $cartePostale;
         }
 
-        public static function selectByType()
+        public static function selectAll()
         {          
             try {
                 $maCo = self::getBdd();

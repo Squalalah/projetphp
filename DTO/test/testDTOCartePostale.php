@@ -8,7 +8,7 @@ echo 'Test de la fonction "selectById" :<br>';
 echo '<br>';
 
 
-$CartePostale = DTOCartePostale::selectById(4);
+$CartePostale = DTOCartePostale::selectById(4); // recherche dans DTOCartePostale toutes les cartes postales puis affichage
 
 echo 'libelle : ' . $CartePostale->getLibelle() . '<br>';
 echo 'marque : ' . $CartePostale->getMarque() . '<br>';
@@ -24,9 +24,9 @@ echo 'Test de la fonction "selectByType" :<br>';
 echo '<br>';
 
 
-$toutesLesCP = DTOCartePostale::selectByType();
+$toutesLesCP = DTOCartePostale::selectAll(); 
 
-foreach ($toutesLesCP as $carte) {
+foreach ($toutesLesCP as $carte) {              // recherche pour chaque carte postale dans toutes les cartes postales puis affichage
     echo 'libelle : ' . $carte->getLibelle() . '<br>';
     echo 'marque : ' . $carte->getMarque() . '<br>';
     echo 'prix hunitaire : ' . $carte->getPrixUnitaire() . '<br>';
