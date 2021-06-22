@@ -7,6 +7,7 @@ class Auteur
     private $prenom;
     private $nom;
     private $lesCartes;
+    private $auteurId;
 
     public function __construct($prenom, $nom)
     {
@@ -43,5 +44,17 @@ class Auteur
     public function ajouterCarte($lesCartes)
     {
         $this->lesCartes[] = $lesCartes;
+    }
+
+    // ID
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 }
