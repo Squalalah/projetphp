@@ -9,7 +9,7 @@ class CartePostale extends Produit
 
     public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd = '')
     {
-        parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd);
+        parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd);
         $this->type = $type;
     }
 

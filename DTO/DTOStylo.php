@@ -12,8 +12,9 @@ class DTOStylo
 			$prep->bindParam(1,$refProd,PDO::PARAM_INT); 
 			$prep->execute(); 
 			$mesDataProduit=$prep->fetchObject();
+
 			$stylo=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
-			$mesDataProduit->couleur,$mesDataProduit->typeMine,$mesDataProduit->refProd);
+			$mesDataProduit->couleur,$mesDataProduit->typeMine, $mesDataProduit->refProd);
 		} 
 		catch (PDOException $e) 
 		{
@@ -31,8 +32,8 @@ class DTOStylo
 			$resultat=$maCo->query($req);
 			while($mesDataProduit=$resultat->fetchObject())
 			{
-				$lesStylos[]=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock, $mesDataProduit->type,
-				$mesDataProduit->couleur,$mesDataProduit->typeMine,$mesDataProduit->refProd);	
+				$lesStylos[]=new Stylo($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
+				$mesDataProduit->couleur,$mesDataProduit->typeMine, $mesDataProduit->refProd);	
 			}
 		}
 		catch (PDOException $e) 

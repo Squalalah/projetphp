@@ -1,14 +1,14 @@
 <?php
 
-require_once('Produit.php');
-class Glace extends Produit
+require_once('ProduitPerissable.php.php');
+class Glace extends ProduitPerissable
 {
   private $parfum;
   private $temperatureConservation;
   
-  public function __construct($libelle, $marque, $prixUnitaire, $qteStock, $parfum, $temperatureConservation, $refProd='')
+  public function __construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $parfum, $temperatureConservation, $refProd='')
   {
-    parent::__construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd);
+    parent::__construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd,);
     $this->setParfum($parfum);
     $this->setTemperatureConservation($temperatureConservation);
   }

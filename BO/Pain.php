@@ -5,9 +5,9 @@ class Pain extends ProduitPerissable
 {
     private $poids;
 
-    public function __construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $poids, $refProd = '')
+    public function __construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $poids, $refProd = '')
     {
-        parent::__construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $refProd);
+        parent::__construct($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $refProd);
         $this->poids = $poids;
     }
 
