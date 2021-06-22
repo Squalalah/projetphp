@@ -1,6 +1,7 @@
 <?php
 
     require_once('../../BO/Auteur.php');
+    require_once('../../BO/CartePostale.php');
 
     class DTOAuteur
     {
@@ -56,17 +57,15 @@
         {
             try {
                 $maCo = self::getBdd();
-                $req = "select * from auteur where id = ?"; 
+                $req = "select produit.* from auteur inner join Auteur_has_CP on auteur.id = Auteur_has_CP.auteur_id inner join produit on Auteur_has_CP.produit_id = produit.refProd where auteur.id = ?"; 
                 $prep = $maCo->prepare($req);
                 $prep->bindParam(1, $id,PDO::PARAM_INT); 
                 $prep->execute(); 
 
-                $mesDataAuteur = $prep->fetchObject();
-                if($mesDataAuteur !== false)
-                { 
-                    $auteur = new Auteur($mesDataAuteur->prenom, $mesDataAuteur->nom, $mesDataAuteur->id);
+                while($auteurEtCartes = $prep->fetchObject())
+                {
+                    $lesCartes[] = new CartePostale($auteurEtCartes->libelle, $auteurEtCartes->marque, $auteurEtCartes->prixUnitaire, $auteurEtCartes->qteStock, $auteurEtCartes->typeCP, $auteurEtCartes->refProd);
                 }
-                else $auteur = new Auteur('ERREUR', 'ERREUR');
             }
 
             catch (PDOException $e) 
@@ -75,9 +74,9 @@
                 die();
             }
 
-            return $auteur;
+            return $lesCartes;
         }
-        
+
         private static function getBdd() {
         require('localData.php');
         return new PDO($dns,$user,$mdp);
