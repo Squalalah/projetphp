@@ -15,6 +15,6 @@ interface SELECT {
 }
 
 interface INSERT {
-    public function insert();
+    public static function insert($data);
 }
 
