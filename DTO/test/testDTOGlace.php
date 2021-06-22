@@ -3,7 +3,7 @@
 require_once('../DTOGlace.php');
 
 
-// Test pour selectionner tous les stylos
+// Test pour selectionner toutes les glaces
 
 $toutesLesGLaces=DTOGlace::selectAll();
 
