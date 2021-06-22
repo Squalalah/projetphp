@@ -8,7 +8,7 @@
         {
             try {
                 $maCo = self::getBdd();
-                $req = "select * from produit where id=? and type = 4"; // recherche de tous les produits par id et par type (4 = carte postale)
+                $req = "select * from produit where refProd=? and type = 4"; // recherche de tous les produits par id et par type (4 = carte postale)
                 $prep = $maCo->prepare($req);
                 $prep->bindParam(1, $refProd,PDO::PARAM_INT); 
                 $prep->execute(); 

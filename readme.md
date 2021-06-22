@@ -4,7 +4,7 @@ Projet PHP d'Aurelie, Vincent et Anthony, car nous avons une passion pour la col
 
 ## 1/ Documentation SQL
 
-produit_type : 
+type : 
 + 1 = Stylo
 + 2 = Glace
 + 3 = Pain

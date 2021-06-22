@@ -2,15 +2,19 @@
 
 require_once('../DTOCartePostale.php');
 
-self::selectById($refProd);
+$CartePostale = DTOCartePostale::selectById(4);
 
+echo 'test libelle : '. $CartePostale->getLibelle();
+
+
+//$tableau = DTOCartePostale::selectByType();
 
 
 echo '<br>';
 
-echo 'libelle : ' . $test->getLibelle() . '<br>';
-echo 'marque : ' . $test->getMarque() . '<br>';
-echo 'prix hunitaire : ' . $test->getPrixUnitaire() . '<br>';
-echo 'stock : ' . $test->getQteStock() . '<br>';
-echo 'type de produit : ' . $test->getType() . '<br>';
-echo 'Id de la carte postale : ' . $test->getRefProd() . '<br>';
+echo 'libelle : ' . $CartePostale->getLibelle() . '<br>';
+echo 'marque : ' . $CartePostale->getMarque() . '<br>';
+echo 'prix hunitaire : ' . $CartePostale->getPrixUnitaire() . '<br>';
+echo 'stock : ' . $CartePostale->getQteStock() . '<br>';
+echo 'type de produit : ' . $CartePostale->getType() . '<br>';
+echo 'Id de la carte postale : ' . $CartePostale->getRefProd() . '<br>';
