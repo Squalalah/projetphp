@@ -33,7 +33,6 @@
                 $maCo = self::getBdd();
                 $req = "select * from produit where type = 4";
                 $resultat = $maCo->query($req);
-
                 while($mesDataProduit = $resultat->fetchObject())
                 {
                     $lesCartesPostales[] = new cartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
