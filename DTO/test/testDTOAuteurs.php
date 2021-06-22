@@ -31,7 +31,7 @@ foreach ($tousLesAuteurs as $unAuteur) {              // recherche un unique aut
 
 //TEST FONCTION selectAllCartes
 
-echo 'Test de la fonction "selectAllcartes" :<br>';
+echo 'Test de la fonction "selectAllCartes" :<br>';
 echo '<br>';
 
 $auteurEtCarte = DTOAuteur::selectAllCartes($auteur->getAuteurId()); 
