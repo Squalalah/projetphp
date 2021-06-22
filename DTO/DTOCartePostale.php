@@ -1,6 +1,6 @@
 <?php
 
-    require_once('CartePostale.php');
+    require_once('../../BO/CartePostale.php');
 
     class DTOCartePostale
     {
@@ -8,11 +8,11 @@
         {
             try {
                 $maCo = self::getBdd();
-                $req = "select * from produit where produit_id=? and produit_type = 4"; // recherche de tous les produits par id et par type (4 = carte postale)
+                $req = "select * from produit where id=? and type = 4"; // recherche de tous les produits par id et par type (4 = carte postale)
                 $prep = $maCo->prepare($req);
                 $prep->bindParam(1, $refProd,PDO::PARAM_INT); 
                 $prep->execute(); 
-                
+
                 $mesDataProduit = $prep->fetchObject();
                 $cartePostale = new CartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
                 $mesDataProduit->type, $mesDataProduit->refProd);
@@ -28,10 +28,10 @@
         }
 
         public static function selectByType()
-        {
+        {          
             try {
                 $maCo = self::getBdd();
-                $req = "select * from produit where produit_type = 4";
+                $req = "select * from produit where type = 4";
                 $resultat = $maCo->query($req);
 
                 while($mesDataProduit = $resultat->fetchObject())
