@@ -7,14 +7,16 @@ abstract class Produit
     protected $marque;
     protected $prixUnitaire;
     protected $qteStock;
+    protected $produitId;
 
-    protected function __construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd)
+    protected function __construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd, $produitId)
     {
         $this->refProd = $refProd;
         $this->libelle = $libelle;
         $this->marque = $marque;
         $this->prixUnitaire = $prixUnitaire;
         $this->qteStock = $qteStock;
+        $this->produitId = $produitId;
     }
 
     // LIBELLE
@@ -76,4 +78,18 @@ abstract class Produit
     {
         $this->refProd = $refProd;
     }
+
+    // ID
+
+    public function getProduitId()
+    {
+        return $this->produitId;
+    }
+
+    public function setProduitId($produitId)
+    {
+        $this->produitId = $produitId;
+    }
+
+
 }
