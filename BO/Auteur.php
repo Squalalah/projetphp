@@ -48,13 +48,13 @@ class Auteur
 
     // ID
 
-    public function getId()
+    public function getAuteurId()
     {
-        return $this->id;
+        return $this->auteurId;
     }
 
-    public function setId($id)
+    public function setAuteurId($auteurId)
     {
-        $this->id = $id;
+        $this->auteurId = $auteurId;
     }
 }

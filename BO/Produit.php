@@ -7,6 +7,7 @@ abstract class Produit
     protected $marque;
     protected $prixUnitaire;
     protected $qteStock;
+    protected $produitId;
 
     protected function __construct($libelle, $marque, $prixUnitaire, $qteStock, $refProd)
     {
@@ -76,4 +77,8 @@ abstract class Produit
     {
         $this->refProd = $refProd;
     }
+
+    // ID
+
+    public function getProduitId
 }
