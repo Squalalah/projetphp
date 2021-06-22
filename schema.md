@@ -10,7 +10,7 @@
 <li>Création des DTO de classe + Test fonctionnel</li>
 <li>Création des vues et contrôleur de chaque classe</li>
 <li>Création de vues spécifiques (Liste de produits)</li>
-<li>Travailler l'esthétique du site</li>
+<li>Travailler l'esthétique du site (Ajout image pour chaque produit)</li>
 </ol>
 
 ***
