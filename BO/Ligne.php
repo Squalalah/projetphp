@@ -1,19 +1,18 @@
 <?php
 
-require_once('Produit.php');
+require_once('Ligne.php');
 class Ligne
 {
   private $quantite;
-  private $ligne_id;
+  private $panierId;
+  private $ligneId;
   private $refProd;
   
-  public function __construct($quantite, $ligne_id='')
+  public function __construct($quantite, $panierId='', $ligneId='', $refProd='')
   {
     $this->setQuantite($quantite);
-    $this->setLigneId($ligne_id);
+    $this->setPanierId($panierId);
   }
-
-  //  LIGNE
 
   public function getQuantite()
   {
@@ -27,12 +26,12 @@ class Ligne
 
   public function getLigneId()
   {
-    return $this->ligne_id;
+    return $this->ligneId;
   }
 
-  public function setLigneId($ligne_id)
+  public function setLigneId($ligneId)
   {
-    $this->ligne_id = $ligne_id;
+    $this->ligneId = $ligneId;
   }
 
   /**
@@ -57,7 +56,23 @@ class Ligne
   }
 
   public function toString() {
-    return ' "'.$this->quantite. '" "'. $this->ligne_id. '" "'. $this->refProd.'"';
+    return ' "'.$this->quantite. '" "'. $this->ligneId. '" "'. $this->refProd.'"';
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getPanierId()
+  {
+    return $this->panierId;
+  }
+
+  /**
+   * @param mixed $panierId
+   */
+  public function setPanierId($panierId): void
+  {
+    $this->panierId = $panierId;
   }
 
 }

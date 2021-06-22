@@ -12,8 +12,7 @@ interface CRUD {
 interface CRD {
     public static function insert($data);
     public static function selectAll();
-    public static function delete($data);
-    public static function selectbyId($data);
+    public static function delete($data, $id = '');
 }
 
 interface CUD {

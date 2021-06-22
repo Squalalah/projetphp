@@ -5,45 +5,56 @@ require_once('../../BO/Ligne.php');
 require_once('InterfaceDTO.php');
 class DTOLigne implements CRD
 {
+    /* @var Ligne $data */
     public static function insert($data)
-    {
-
-    }
-    public static function delete($id)
-    {
-
-    }
-    public static function selectById($refProd)
     {
         try {
             $maCo=self::getBdd();
-            $req="select * from produit where refProd=? AND type = 3";
+            $req='INSERT INTO Ligne (quantite, produit_id, panier_id) VALUES (?,?,?)';
             $prep=$maCo->prepare($req);
-            $prep->bindParam(1,$refProd,PDO::PARAM_INT);
+            $quantite = $data->getQuantite();
+            $panierId = $data->getPanierId();
+            $produitId = $data->getRefProd();
+            $prep->bindParam(1, $quantite, PDO::PARAM_INT);
+            $prep->bindParam(2, $produitId, PDO::PARAM_INT);
+            $prep->bindParam(3, $panierId, PDO::PARAM_INT);
             $prep->execute();
-            $mesDataProduit=$prep->fetchObject();
-            //($dateLimiteConso, $libelle, $marque, $prixUnitaire, $qteStock, $type, $poids, $refProd = '')
-            $pain=new Pain($mesDataProduit->dateLimiteConso, $mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
-                $mesDataProduit->poids, $mesDataProduit->refProd);
+            $data->setLigneId($maCo->lastInsertId());
         }
         catch (PDOException $e)
         {
             echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
             die();
         }
-        return $pain;
     }
-
-    public static function selectAll()
+    public static function delete($panierId, $refProd = '')
     {
         try {
             $maCo=self::getBdd();
-            $req="select * from produit where type = 3";
-            $resultat=$maCo->query($req);
-            while($mesDataProduit=$resultat->fetchObject())
+            $req='DELETE from Ligne WHERE panier_id = ? AND produit_id = ?';
+            $prep=$maCo->prepare($req);
+            $prep->bindParam(1,$panierId,PDO::PARAM_INT);
+            $prep->bindParam(2, $refProd, PDO::PARAM_INT);
+            $prep->execute();
+
+            
+        }
+        catch (PDOException $e) {
+            echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
+            die();
+        }
+    }
+    public static function selectAllByPanier($id)
+    {
+        try {
+            $maCo=self::getBdd();
+            $req="select * from Ligne where panier_id=?";
+            $prep=$maCo->prepare($req);
+            $prep->bindParam(1,$id,PDO::PARAM_INT);
+            $prep->execute();
+            while($mesDataProduit=$prep->fetchObject())
             {
-                $lesPains[]=new Pain($mesDataProduit->dateLimiteConso, $mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,$mesDataProduit->type,
-                    $mesDataProduit->poids, $mesDataProduit->refProd);
+                $lesLignes[] = new Ligne($mesDataProduit->quantite, $mesDataProduit->id);
             }
         }
         catch (PDOException $e)
@@ -51,7 +62,26 @@ class DTOLigne implements CRD
             echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
             die();
         }
-        return $lesPains;
+        return $lesLignes;
+    }
+
+    public static function selectAll()
+    {
+        try {
+            $maCo=self::getBdd();
+            $req="select * from Ligne";
+            $resultat=$maCo->query($req);
+            while($mesDataProduit=$resultat->fetchObject())
+            {
+                $lesLignes[] = new Ligne($mesDataProduit->quantite, $mesDataProduit->panier_id);
+            }
+        }
+        catch (PDOException $e)
+        {
+            echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
+            die();
+        }
+        return $lesLignes;
     }
 
     private static function getBdd() {
