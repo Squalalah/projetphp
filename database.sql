@@ -17,10 +17,6 @@ DROP DATABASE IF EXISTS projetphp;
 CREATE DATABASE projetphp;
 USE projetphp;
 
---
--- Base de données : `projetphp`
---
-
 -- --------------------------------------------------------
 
 --
@@ -49,7 +45,6 @@ INSERT INTO `Auteur` (`id`, `prenom`, `nom`) VALUES
 --
 
 CREATE TABLE `Auteur_has_CP` (
-                                 `id` bigint(20) NOT NULL,
                                  `auteur_id` bigint(20) NOT NULL,
                                  `produit_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -58,8 +53,8 @@ CREATE TABLE `Auteur_has_CP` (
 -- Déchargement des données de la table `Auteur_has_CP`
 --
 
-INSERT INTO `Auteur_has_CP` (`id`, `auteur_id`, `produit_id`) VALUES
-(1, 1, 4);
+INSERT INTO `Auteur_has_CP` (`auteur_id`, `produit_id`) VALUES
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -89,18 +84,17 @@ INSERT INTO `CategorieProduit` (`id`, `libelle`) VALUES
 --
 
 CREATE TABLE `Ligne` (
-                         `id` bigint(20) NOT NULL,
                          `quantite` int(11) NOT NULL,
                          `produit_id` bigint(20) NOT NULL,
-                         `achat_id` bigint(20) NOT NULL
+                         `panier_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Ligne`
 --
 
-INSERT INTO `Ligne` (`id`, `quantite`, `produit_id`, `achat_id`) VALUES
-(1, 10, 4, 1);
+INSERT INTO `Ligne` (`quantite`, `produit_id`, `panier_id`) VALUES
+(10, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +161,7 @@ ALTER TABLE `Auteur`
 -- Index pour la table `Auteur_has_CP`
 --
 ALTER TABLE `Auteur_has_CP`
-    ADD PRIMARY KEY (`id`),
+    ADD PRIMARY KEY (`auteur_id`,`produit_id`),
   ADD KEY `indexauteur` (`auteur_id`),
   ADD KEY `indexProduit` (`produit_id`);
 
@@ -181,9 +175,9 @@ ALTER TABLE `CategorieProduit`
 -- Index pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
-    ADD PRIMARY KEY (`id`),
+    ADD PRIMARY KEY (`produit_id`,`panier_id`),
   ADD KEY `produit_id` (`produit_id`),
-  ADD KEY `achat_id` (`achat_id`);
+  ADD KEY `panier_id` (`panier_id`);
 
 --
 -- Index pour la table `Panier`
@@ -207,18 +201,6 @@ ALTER TABLE `Produit`
 --
 ALTER TABLE `Auteur`
     MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `Auteur_has_CP`
---
-ALTER TABLE `Auteur_has_CP`
-    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `Ligne`
---
-ALTER TABLE `Ligne`
-    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Panier`
@@ -247,5 +229,5 @@ ALTER TABLE `Auteur_has_CP`
 -- Contraintes pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
-    ADD CONSTRAINT `ligne_ibfk_1` FOREIGN KEY (`achat_id`) REFERENCES `panier` (`id`),
+    ADD CONSTRAINT `ligne_ibfk_1` FOREIGN KEY (`panier_id`) REFERENCES `Panier` (`id`),
   ADD CONSTRAINT `ligne_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
