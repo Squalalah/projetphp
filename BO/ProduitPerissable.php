@@ -15,6 +15,6 @@ abstract class ProduitPerissable extends Produit {
 
     public function setDateLimiteConso($dateLimiteConso)
     {
-        return $this->$dateLimiteConso;
+        $this->dateLimiteConso = $dateLimiteConso;
     }
 }

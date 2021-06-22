@@ -1,7 +1,8 @@
 <?php
 
 require_once('../../BO/Glace.php');
-class DTOGlace
+require_once('InterfaceDTO.php');
+class DTOGlace implements SELECT
 {
 	public static function selectById($refProd)
 	{

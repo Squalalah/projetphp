@@ -24,7 +24,7 @@ foreach($toutesLesGLaces as $glace)
 
 // Test pour selectionner un glace par ID
 
-$uneGlace=DTOGLace::selectById(3);
+$uneGlace=DTOGLace::selectById(2);
 echo 'Stylo numéro ' .$glace->getRefProd(). '<br>';
 echo 'Libelle : ' .$glace->getLibelle().
 ', date limite de conso : ' .$glace->getDateLimiteConso().

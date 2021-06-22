@@ -28,7 +28,7 @@ abstract class Produit
 
     public function setLibelle($libelle)
     {
-        return $this->$libelle;
+        $this->libelle = $libelle;
     }
 
     // MARQUE
