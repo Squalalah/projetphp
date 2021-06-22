@@ -2,20 +2,20 @@
 
 // revoir le lien avec la table Ligne
 
-require_once('../../BO/Achat.php');
+require_once('../../BO/Panier.php');
 require_once('InterfaceDTO.php');
-class DTOAchat implements INSERT
+class DTOPanier implements INSERT
 {
 	public static function insert($data)
 	{
 		try {
 			$maCo=self::getBdd();
-			$req="INSERT INTO achat (montant) VALUES(?)";
+			$req="INSERT INTO panier (montant) VALUES(?)";
 			$prep=$maCo->prepare($req);
 			$montant = $data->getMontant();
 			$prep->bindParam(1,$montant); 
 			$prep->execute(); 
-			$data->setAchatId($maCo->lastInsertId());
+			$data->setPanierId($maCo->lastInsertId());
 		} 
 		catch (PDOException $e) 
 		{
