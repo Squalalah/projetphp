@@ -8,7 +8,7 @@ class Panier
     private $lesLignes;
     private $panierId;
 
-    public function __construct($montant)
+    public function __construct($montant = 0)
     {
         $this->montant = $montant;
     }
