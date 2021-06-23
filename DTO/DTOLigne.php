@@ -37,8 +37,6 @@ class DTOLigne implements CRD
             $prep->bindParam(1,$panierId,PDO::PARAM_INT);
             $prep->bindParam(2, $produitId, PDO::PARAM_INT);
             $prep->execute();
-
-            
         }
         catch (PDOException $e) {
             echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
