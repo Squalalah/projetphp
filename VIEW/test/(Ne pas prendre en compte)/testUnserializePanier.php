@@ -13,4 +13,3 @@ foreach($panier->getLignes() as $ligne)
     /* @var Ligne $ligne */
     echo $ligne->getQuantite();
 }
-
