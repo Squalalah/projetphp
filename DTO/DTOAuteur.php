@@ -5,7 +5,7 @@
 
     class DTOAuteur implements SELECT
     {
-        public static function selectById($id)
+        public static function selectById($id) // Renvoit un objet de type "Auteur" correspondant à l'ID SQL indiqué ($id)
         {
             try {
                 $maCo = self::getBdd();
@@ -31,7 +31,7 @@
             return $auteur;
         }
 
-        public static function selectAll()
+        public static function selectAll() // Renvoit un tableau de type "Auteur" contenant tout les auteurs
         {          
             try {
                 $maCo = self::getBdd();
@@ -53,6 +53,7 @@
             return $lesAuteurs;
         }
 
+        //Renvoit un tableau de type 'CartePostale' contenant toutes les cartesPostale créer par l'auteur avec l'ID SQL $id.
         public static function selectAllCartes($id)
         {
             try {
