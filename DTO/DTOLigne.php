@@ -49,13 +49,13 @@ class DTOLigne implements CRD
     {
         try {
             $maCo=self::getBdd();
-            $req="select * from Ligne where panier_id=?";
+            $req="select * from Ligne where produit_id=?";
             $prep=$maCo->prepare($req);
             $prep->bindParam(1,$id,PDO::PARAM_INT);
             $prep->execute();
             while($mesDataProduit=$prep->fetchObject())
             {
-                $lesLignes[] = new Ligne($mesDataProduit->quantite, $mesDataProduit->id);
+                $lesLignes[] = new Ligne($mesDataProduit->quantite, $mesDataProduit->produit_id);
             }
         }
         catch (PDOException $e)

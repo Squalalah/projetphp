@@ -4,13 +4,13 @@ require_once('Ligne.php');
 class Ligne
 {
   private $quantite;
-  private $Panier;
+  //private $Panier;
   private $Produit;
   
-  public function __construct($quantite, $panier, $produit)
+  public function __construct($quantite, $produit)
   {
     $this->setQuantite($quantite);
-    $this->setPanier($panier);
+    //$this->setPanier($panier);
     $this->setProduit($produit);
   }
 
@@ -52,18 +52,21 @@ class Ligne
   /**
    * @return mixed
    */
+  /*
   public function getPanier()
   {
     return $this->Panier;
   }
+  */
 
   /**
    * @param mixed $Panier
    */
+  /*
   public function setPanier($Panier): void
   {
     $this->Panier = $Panier;
-  }
+  }*/
 
 }
 

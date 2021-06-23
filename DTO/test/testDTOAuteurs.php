@@ -14,7 +14,6 @@ echo 'Nom : ' . $auteur->getNom() . '<br>';
 
 echo 'Id de l\'auteur : ' . $auteur->getAuteurId() . '<br>';
 echo '<br>';
-
 // TEST FONCTION SELECTALL
 
 echo 'Test de la fonction "selectAll" :<br>';

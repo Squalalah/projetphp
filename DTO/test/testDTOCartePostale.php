@@ -7,7 +7,6 @@ require_once('../DTOCartePostale.php');
 echo 'Test de la fonction "selectById" :<br>';
 echo '<br>';
 
-
 $CartePostale = DTOCartePostale::selectById(4); // recherche dans DTOCartePostale toutes les cartes postales puis affichage
 
 echo 'libelle : ' . $CartePostale->getLibelle() . '<br>';
