@@ -1,18 +1,19 @@
 <?php
 // revoir le lien avec la table Ligne
 
-require_once('../BO/Stylo.php');
-require_once ('../BO/CartePostale.php');
-require_once ('../BO/Pain.php');
-require_once ('../BO/Glace.php');
+require_once ('../../BO/BDD.php');
+require_once('../../BO/Stylo.php');
+require_once ('../../BO/CartePostale.php');
+require_once ('../../BO/Pain.php');
+require_once ('../../BO/Glace.php');
 require_once('InterfaceDTO.php');
 
-class DTOPanier implements SELECT
+class DTOProduit implements SELECT
 {
     public static function selectById($id)
     {
         try {
-            $maCo = getBDD();
+            $maCo = BDD::getBdd();
             $req="select * from produit where refProd=?";
             $prep=$maCo->prepare($req);
             $prep->bindParam(1,$id,PDO::PARAM_INT);
@@ -45,12 +46,16 @@ class DTOPanier implements SELECT
 
     public static function selectAll()
     {
-
-    }
-
-    private static function getBdd() {
-        require('localData.php');
-        return new PDO($dns,$user,$mdp);
+        try {
+            $maCo = BDD::getBdd();
+            $req = "select * from produit";
+            $resultat = $maCo->query($req);
+            return $resultat->fetchAll();
+        }
+        catch (PDOException $e) {
+            echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
+            die();
+        }
     }
 
 
