@@ -51,6 +51,8 @@ if(isset($_POST['ajouter'])) {
   $_SESSION['panier']=serialize($panier);
   echo $_SESSION['panier'];
 
+  header('Location:listeProduits.php');
+
   /*
   echo $_POST['produit'];
   $stylo = unserialize($_POST['produit']);
