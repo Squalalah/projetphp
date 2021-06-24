@@ -18,7 +18,7 @@ $lesStylos=DTOStylo::selectAll();
       <th>Stock</th>
       <th>Couleur</th>
       <th>Type Mine</th>
-      <TH>Panier</TH>
+      <th>Panier</th>
     </tr>
   </thead>
   <tbody>
