@@ -15,12 +15,12 @@ class CartePostale extends Produit
 
     // type
 
-    public function gettypeCP()
+    public function getTypeCP()
     {
         return $this->typeCP;
     }
 
-    public function settypeCP($typeCP)
+    public function setTypeCP($typeCP)
     {
         $this->typeCP = $typeCP;
     }
