@@ -26,7 +26,7 @@ class DTOLigne implements CRD
             die();
         }
     }
-    public static function delete($panier, $produit ='')
+    public static function delete($panier, $produit)
     {
         try {
             $maCo=self::getBdd();
