@@ -17,6 +17,11 @@ DROP DATABASE IF EXISTS projetphp;
 CREATE DATABASE projetphp;
 USE projetphp;
 
+
+--
+-- Base de données : `projetphp`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -63,7 +68,7 @@ INSERT INTO `Auteur_has_CP` (`auteur_id`, `produit_id`) VALUES
 --
 
 CREATE TABLE `CategorieProduit` (
-                                    `id` int(11) NOT NULL,
+                                    `id` tinyint(11) NOT NULL,
                                     `libelle` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -141,11 +146,11 @@ CREATE TABLE `Produit` (
 --
 
 INSERT INTO `Produit` (`refProd`, `libelle`, `marque`, `prixUnitaire`, `qteStock`, `type`, `dateLimiteConso`, `poids`, `couleur`, `typeMine`, `parfum`, `temperature`, `typeCP`) VALUES
-(1, 'Pain au chocolat', 'Haribo', 5.45, 200, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
-(2, 'Glace à la menthe', 'Fantasy', 1.86, 15, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
-(3, 'Stylo', 'Bic', 5.87, 234, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
-(4, 'Carte Postale', 'Gouvernement', 1.65, 200, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
-(5, 'Stylo', 'MontBlanc', 20.99, 120, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL);
+(1, 'Pain au chocolat', 'Haribo', 5.45, 0, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
+(2, 'Glace à la menthe', 'Fantasy', 1.86, 0, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
+(3, 'Stylo', 'Bic', 5.87, 0, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
+(4, 'Carte Postale', 'Gouvernement', 1.65, 0, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
+(5, 'Stylo', 'MontBlanc', 20.99, 0, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -162,8 +167,8 @@ ALTER TABLE `Auteur`
 --
 ALTER TABLE `Auteur_has_CP`
     ADD PRIMARY KEY (`auteur_id`,`produit_id`),
-  ADD KEY `indexauteur` (`auteur_id`),
-  ADD KEY `indexProduit` (`produit_id`);
+    ADD KEY `indexauteur` (`auteur_id`),
+    ADD KEY `indexProduit` (`produit_id`);
 
 --
 -- Index pour la table `CategorieProduit`
@@ -176,8 +181,8 @@ ALTER TABLE `CategorieProduit`
 --
 ALTER TABLE `Ligne`
     ADD PRIMARY KEY (`produit_id`,`panier_id`),
-  ADD KEY `produit_id` (`produit_id`),
-  ADD KEY `panier_id` (`panier_id`);
+    ADD KEY `produit_id` (`produit_id`),
+    ADD KEY `panier_id` (`panier_id`);
 
 --
 -- Index pour la table `Panier`
@@ -190,7 +195,7 @@ ALTER TABLE `Panier`
 --
 ALTER TABLE `Produit`
     ADD PRIMARY KEY (`refProd`),
-  ADD KEY `type` (`type`);
+    ADD KEY `type` (`type`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -223,11 +228,21 @@ ALTER TABLE `Produit`
 --
 ALTER TABLE `Auteur_has_CP`
     ADD CONSTRAINT `AuteurHasCP` FOREIGN KEY (`auteur_id`) REFERENCES `Auteur` (`id`),
-  ADD CONSTRAINT `ProduitHasCP` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
+    ADD CONSTRAINT `ProduitHasCP` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
 
 --
 -- Contraintes pour la table `Ligne`
 --
 ALTER TABLE `Ligne`
     ADD CONSTRAINT `ligne_ibfk_1` FOREIGN KEY (`panier_id`) REFERENCES `Panier` (`id`),
-  ADD CONSTRAINT `ligne_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
+    ADD CONSTRAINT `ligne_ibfk_2` FOREIGN KEY (`produit_id`) REFERENCES `Produit` (`refProd`);
+
+--
+-- Contraintes pour la table `Produit`
+--
+ALTER TABLE `Produit`
+    ADD CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`type`) REFERENCES `CategorieProduit` (`id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
