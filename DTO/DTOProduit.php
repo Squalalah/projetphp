@@ -1,11 +1,6 @@
 <?php
 // revoir le lien avec la table Ligne
 
-require_once ('../../BO/BDD.php');
-require_once('../../BO/Stylo.php');
-require_once ('../../BO/CartePostale.php');
-require_once ('../../BO/Pain.php');
-require_once ('../../BO/Glace.php');
 require_once('InterfaceDTO.php');
 
 class DTOProduit implements SELECT

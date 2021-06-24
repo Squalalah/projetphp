@@ -1,6 +1,5 @@
 <?php
 
-require_once('../../BO/Glace.php');
 require_once('InterfaceDTO.php');
 class DTOGlace implements SELECT
 {

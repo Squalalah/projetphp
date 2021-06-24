@@ -1,8 +1,5 @@
 <?php
 
-    require_once('../../BO/Auteur.php');
-    require_once('../../BO/CartePostale.php');
-
     class DTOAuteur implements SELECT
     {
         public static function selectById($id) // Renvoit un objet de type "Auteur" correspondant à l'ID SQL indiqué ($id)

@@ -1,7 +1,5 @@
 <?php
 
-
-require_once('../../BO/Ligne.php');
 require_once('InterfaceDTO.php');
 class DTOLigne implements CRD
 {

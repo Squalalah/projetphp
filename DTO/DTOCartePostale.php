@@ -1,7 +1,4 @@
 <?php
-
-    require_once('../../BO/CartePostale.php');
-
     class DTOCartePostale implements SELECT
     {
         public static function selectById($refProd) // function retournant la carte postale par rapport à l'id SQL renseigné ($refProd)
@@ -13,7 +10,7 @@
                 $prep->bindParam(1, $refProd,PDO::PARAM_INT);  // On assigne $refProd au 1er élément inconnu '?'
                 $prep->execute();  // On execute la requête
 
-                $mesDataProduit = $prep->fetchObject(); //On récupère une seule ligne, et on la stocke dans $mesDataProduit
+                $mesDataProduit = $prep->fetchObject(); //On récupère une seule ligne, et on la stocke dans $mesDataProduit.
                 $cartePostale = new CartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock, $mesDataProduit->type, $mesDataProduit->refProd);
                 //On créer la carte postale en renseignant les noms des colonnes de la table SQL ($mesDataProduit->libelle)
             }

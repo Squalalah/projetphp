@@ -1,8 +1,6 @@
 <?php
 
 // revoir le lien avec la table Ligne
-
-require_once('../../BO/Panier.php');
 require_once('InterfaceDTO.php');
 class DTOPanier implements CUD
 {

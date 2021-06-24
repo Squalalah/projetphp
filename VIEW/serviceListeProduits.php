@@ -13,7 +13,7 @@ require_once("../DTO/DTOPain.php");
 require_once("../DTO/DTOGlace.php");
 require_once("../DTO/DTOCartePostale.php");
 
-if(isset($_POST['ajouter'])){
+if(isset($_POST['ajouter'])) {
 
   $refProd = $_POST['refProd'];
   $type = $_POST['type'];
@@ -22,14 +22,12 @@ if(isset($_POST['ajouter'])){
   {
     case 1:{
       $typeObjet=DTOStylo::selectById($refProd);
-      echo $typeObjet->getLibelle();
       break;
     }
     case 2: {
       $typeObjet=DTOGlace::selectById($refProd);
       break;
     }
-        
     case 3: {
       $typeObjet=DTOPain::selectById($refProd);
       break;
@@ -39,7 +37,7 @@ if(isset($_POST['ajouter'])){
       break;
     }
   }
-  
+
   if(isset($_SESSION['panier']) == false) {
     $panier=new panier();
   }

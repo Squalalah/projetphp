@@ -1,6 +1,5 @@
 <?php
 
-require_once('../BO/Stylo.php');
 require_once('InterfaceDTO.php');
 class DTOStylo implements SELECT
 {

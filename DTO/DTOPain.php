@@ -1,7 +1,5 @@
 <?php
 
-
-require_once('../../BO/Pain.php');
 require_once('InterfaceDTO.php');
 class DTOPain implements SELECT
 {
