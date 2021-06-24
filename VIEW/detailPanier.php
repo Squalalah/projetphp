@@ -45,7 +45,6 @@ $panier->calculMontant();
             echo '<td>' . $ligne->getProduit()->getMarque() . '</td>';
             echo '<td>' . $ligne->getProduit()->getPrixUnitaire() . '</td>';
             echo '<td>' . $ligne->getPrix() . '</td>';
-            echo '<td>';
           echo '</tr>';
         }
     ?>
