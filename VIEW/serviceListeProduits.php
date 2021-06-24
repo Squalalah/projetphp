@@ -17,6 +17,7 @@ if(isset($_POST['ajouter'])) {
 
   $refProd = $_POST['refProd'];
   $type = $_POST['type'];
+  $quantite = $_POST['quantite'];
 
   switch($type)
   {
@@ -45,7 +46,7 @@ if(isset($_POST['ajouter'])) {
     $panier = unserialize($_SESSION['panier']);
   }
 
-  $ligne=new ligne(1,$typeObjet);
+  $ligne=new ligne($quantite,$typeObjet);
   $panier->ajouteLigne($ligne);
   $_SESSION['panier']=serialize($panier);
   echo $_SESSION['panier'];
