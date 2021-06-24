@@ -52,21 +52,21 @@ class Ligne
   /**
    * @return mixed
    */
-  /*
+  
   public function getPanier()
   {
     return $this->Panier;
   }
-  */
+  
 
   /**
    * @param mixed $Panier
    */
-  /*
+  
   public function setPanier($Panier): void
   {
     $this->Panier = $Panier;
-  }*/
+  }
 
 }
 
