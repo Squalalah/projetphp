@@ -22,8 +22,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
 
 ?>
 
-<table border = 1>
-<caption>LES STYLOS</caption>
+<table border=1>
+  <caption>LES STYLOS</caption>
   <thead>
     <tr>
       <th>Libelle</th>
@@ -55,13 +55,13 @@ $lesCartesPostales=DTOCartePostale::selectAll();
         echo '</tr>';
       }
     ?>
-  </body>
+    </body>
 </table>
 
 <br>
 
-<table border = 1>
-<caption>LES PAINS</caption>
+<table border=1>
+  <caption>LES PAINS</caption>
   <thead>
     <tr>
       <th>Libelle</th>
@@ -90,8 +90,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
             echo '<form method="post" action="serviceListeProduits.php">
                 <input type="number" name="quantite" value="quantite">
                 <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $stylo->getType() . '">
+                <input type="hidden" name="refProd" value="' . $pain->getRefprod() . '">
+                <input type="hidden" name="type" value="' . $pain->getType() . '">
             </form>';
         echo '</tr>';
       }
@@ -101,8 +101,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
 
 <br>
 
-<table border = 1>
-<caption>LES GLACES</caption>
+<table border=1>
+  <caption>LES GLACES</caption>
   <thead>
     <tr>
       <th>Libelle</th>
@@ -133,8 +133,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
             echo '<form method="post" action="serviceListeProduits.php">
                 <input type="number" name="quantite" value="quantite">
                 <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $stylo->getType() . '">
+                <input type="hidden" name="refProd" value="' . $glace->getRefprod() . '">
+                <input type="hidden" name="type" value="' . $glace->getType() . '">
             </form>';
         echo '</tr>';
       }
@@ -144,8 +144,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
 
 <br>
 
-<table border = 1>
-<caption>LES GLACES</caption>
+<table border=1>
+  <caption>LES CARTES POSTALES</caption>
   <thead>
     <tr>
       <th>Libelle</th>
@@ -170,8 +170,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
             echo '<form method="post" action="serviceListeProduits.php">
                 <input type="number" name="quantite" value="quantite">
                 <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $stylo->getType() . '">
+                <input type="hidden" name="refProd" value="' . $cartePostale->getRefprod() . '">
+                <input type="hidden" name="type" value="' . $cartePostale->getType() . '">
             </form>';
         echo '</tr>';
       }
@@ -179,3 +179,8 @@ $lesCartesPostales=DTOCartePostale::selectAll();
   </tbody>
 </table>
 
+<br>
+
+<form method="post" action="detailPanier.php">
+  <input type="submit" name="panierTotal" value="voir le panier">
+</form>
