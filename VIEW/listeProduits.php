@@ -14,13 +14,32 @@ require_once("../DTO/DTOPain.php");
 require_once("../DTO/DTOCartePostale.php");
 require_once("../DTO/DTOAuteur.php");
 
-
 $lesStylos=DTOStylo::selectAll();
 $lesGlaces=DTOGlace::selectAll();
 $lesPains=DTOPain::selectAll();
 $lesCartesPostales=DTOCartePostale::selectAll();
 
+if(isset($_GET['message']))
+{
+    switch($_GET['message'])
+    {
+        case 'error':
+        {
+            $text =  'Une erreur a eu lieu lors de la suppression du panier.<br>';
+            break;
+        }
+        case 'succes':
+        {
+            $text = 'Votre panier a bien été ajouté en base de donnée.<br>';
+            break;
+        }
+    }
+}
+
 ?>
+<form method="post" action="detailPanier.php">
+    <input type="submit" name="panierTotal" value="voir le panier">
+</form>
 
 <table border=1>
   <caption>LES STYLOS</caption>
@@ -184,7 +203,3 @@ $lesCartesPostales=DTOCartePostale::selectAll();
 </table>
 
 <br>
-
-<form method="post" action="detailPanier.php">
-  <input type="submit" name="panierTotal" value="voir le panier">
-</form>

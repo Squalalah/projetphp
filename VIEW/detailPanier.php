@@ -9,6 +9,11 @@ require_once("../BO/CartePostale.php");
 require_once("../BO/Auteur.php");
 require_once("../BO/ProduitPerissable.php");
 
+if(!isset($_SESSION['panier']))
+{
+    header('Location: listeProduits.php');
+}
+
 $panier = unserialize($_SESSION['panier']);
 $panier->calculMontant();
 
@@ -62,5 +67,13 @@ $panier->calculMontant();
     </tr>
   </tfoot>
 </table>
+<form method="POST" action="serviceAjoutePanier.php">
+    <input type="submit" name="valider" value="Valider le panier">
+</form>
 
 </html>
+<?php
+
+$_SESSION['panier'] = serialize($panier);
+
+?>
