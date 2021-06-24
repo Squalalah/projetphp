@@ -60,4 +60,4 @@ $panier redeviendra l'objet Panier de la page1, et l'echo affichera bien '0'.
 
 <hr>
 
-Note : Dans tout les cas, il faudra ajouter 'require_once('Panier.php');' si l'on veut manipuler l'objet transmit en session.
+Note : Dans tout les cas, il faudra ajouter 'require_once('Panier.php');' si l'on veut manipuler l'objet transmit en session. (Ainsi que 'Ligne.php' si l'on veut manipuler le tableau lesLignes dans le Panier)
