@@ -1,15 +1,12 @@
 Projet PHP d'Aurelie, Vincent et Anthony, car nous avons une passion pour la collaboration.
 
 ***
-
 ## 1/ Documentation SQL
-
-type : 
+Type : 
 + 1 = Stylo
 + 2 = Glace
 + 3 = Pain
 + 4 = Carte Postal
-
 ***
 
 ## 2/ Documentation GIT

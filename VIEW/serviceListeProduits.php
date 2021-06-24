@@ -12,6 +12,7 @@ require_once("../DTO/DTOStylo.php");
 require_once("../DTO/DTOPain.php");
 require_once("../DTO/DTOGlace.php");
 require_once("../DTO/DTOCartePostale.php");
+require_once('../DTO/DTOProduit.php');
 
 if(isset($_POST['ajouter'])) {
 
@@ -46,10 +47,16 @@ if(isset($_POST['ajouter'])) {
     $panier = unserialize($_SESSION['panier']);
   }
 
-  $ligne=new ligne($quantite,$typeObjet);
-  $panier->ajouteLigne($ligne);
+  if($panier->ProduitExisteDeja($typeObjet->getRefprod())) {
+    $panier->setQuantiteLigneDejaExistante($typeObjet->getRefprod(), $quantite);
+  }
+  else {
+    $ligne = new ligne($quantite, $typeObjet);
+    $panier->ajouteLigne($ligne);
+  }
+  DTOProduit::deduireStock($refProd, $quantite);
   $_SESSION['panier']=serialize($panier);
-  echo $_SESSION['panier'];
+  //echo $_SESSION['panier'];
 
   header('Location:listeProduits.php');
 

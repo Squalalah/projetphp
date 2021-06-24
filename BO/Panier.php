@@ -5,7 +5,7 @@ require_once('Ligne.php');
 class Panier
 {
     private $montant;
-    private $lesLignes;
+    private array $lesLignes;
     private $panierId;
 
     public function __construct($montant = 0)
@@ -24,6 +24,29 @@ class Panier
     {
         $this->montant = $montant;
     }
+
+    public function produitExisteDeja($id) : bool
+    {
+        if(!isset($this->lesLignes)) return false;
+        foreach($this->lesLignes as $ligne) {
+            /* @var Ligne $ligne */
+            if($ligne->getProduit()->getRefProd() == $id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function setQuantiteLigneDejaExistante($id, $quantite) {
+
+        foreach($this->lesLignes as $ligne) {
+            /* @var Ligne $ligne */
+            if($ligne->getProduit()->getRefProd() == $id) {
+                $ligne->setQuantite($ligne->getQuantite()+$quantite);
+                break;
+            }
+        }
+}
 
     // LIGNE
 
