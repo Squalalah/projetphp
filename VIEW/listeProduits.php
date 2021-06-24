@@ -35,7 +35,8 @@ $lesStylos=DTOStylo::selectAll();
             echo '<td>';
               echo '<form method="post" action="serviceListeProduits.php">
                   <input type="submit" name="ajouter" value="ajouter">
-                  <input type="hidden" name="produit" value="' . serialize($stylo) . '">
+                  <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
+                  <input type="hidden" name="type" value="' . $stylo->getType() . '">
               </form>';
           echo '</tr>';
         }
