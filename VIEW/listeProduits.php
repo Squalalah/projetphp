@@ -47,7 +47,7 @@ $lesCartesPostales=DTOCartePostale::selectAll();
           echo '<td>' . $stylo->getTypeMine() . '</td>';
           echo '<td>';
             echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="quantite">
+                <input type="number" name="quantite" value="1" min="1">
                 <input type="submit" name="ajouter" value="ajouter">
                 <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
                 <input type="hidden" name="type" value="' . $stylo->getType() . '">
@@ -88,7 +88,7 @@ $lesCartesPostales=DTOCartePostale::selectAll();
           echo '<td>' . $pain->getDateLimiteConso() . '</td>';
           echo '<td>';
             echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="quantite">
+                <input type="number" name="quantite" value="1" min="1">
                 <input type="submit" name="ajouter" value="ajouter">
                 <input type="hidden" name="refProd" value="' . $pain->getRefprod() . '">
                 <input type="hidden" name="type" value="' . $pain->getType() . '">
@@ -131,7 +131,7 @@ $lesCartesPostales=DTOCartePostale::selectAll();
           echo '<td>' . $glace->getDateLimiteConso() . '</td>';
           echo '<td>';
             echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="quantite">
+                <input type="number" name="quantite" value="1" min="1">
                 <input type="submit" name="ajouter" value="ajouter">
                 <input type="hidden" name="refProd" value="' . $glace->getRefprod() . '">
                 <input type="hidden" name="type" value="' . $glace->getType() . '">
@@ -168,7 +168,7 @@ $lesCartesPostales=DTOCartePostale::selectAll();
           echo '<td>' . $cartePostale->getTypeCP() . '</td>';
           echo '<td>';
             echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="quantite">
+                <input type="number" name="quantite" value="1" min="1">
                 <input type="submit" name="ajouter" value="ajouter">
                 <input type="hidden" name="refProd" value="' . $cartePostale->getRefprod() . '">
                 <input type="hidden" name="type" value="' . $cartePostale->getType() . '">
