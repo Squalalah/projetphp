@@ -108,11 +108,11 @@ $lesCartesPostales=DTOCartePostale::selectAll();
   <thead>
     <tr>
       <th>Libelle</th>
+      <th>Parfum</th>
       <th>Marque</th>
       <th>Prix Unitaire</th>
       <th>Stock</th>
       <th>Type</th>
-      <th>Parfum</th>
       <th>Température de conservation</th>
       <th>Date limite de consommation</th>
       <th>Panier</th>
@@ -124,11 +124,11 @@ $lesCartesPostales=DTOCartePostale::selectAll();
       foreach($lesGlaces as $glace){
         echo '<tr>';
           echo '<td>' . $glace->getLibelle() . '</td>';
+          echo '<td>' . $glace->getParfum() . '</td>';
           echo '<td>' . $glace->getMarque() . '</td>';
           echo '<td>' . $glace->getPrixUnitaire() . '</td>';
           echo '<td>' . $glace->getQteStock() . '</td>';
           echo '<td>' . $glace->getType() . '</td>';
-          echo '<td>' . $glace->getParfum() . '</td>';
           echo '<td>' . $glace->getTemperatureConservation() . '</td>';
           echo '<td>' . $glace->getDateLimiteConso() . '</td>';
           echo '<td>';

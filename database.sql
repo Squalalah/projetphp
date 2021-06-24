@@ -17,7 +17,6 @@ DROP DATABASE IF EXISTS projetphp;
 CREATE DATABASE projetphp;
 USE projetphp;
 
-
 --
 -- Base de données : `projetphp`
 --
@@ -147,10 +146,19 @@ CREATE TABLE `Produit` (
 
 INSERT INTO `Produit` (`refProd`, `libelle`, `marque`, `prixUnitaire`, `qteStock`, `type`, `dateLimiteConso`, `poids`, `couleur`, `typeMine`, `parfum`, `temperature`, `typeCP`) VALUES
 (1, 'Pain au chocolat', 'Haribo', 5.45, 0, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
-(2, 'Glace à la menthe', 'Fantasy', 1.86, 0, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
+(2, 'Glace', 'Fantasy', 1.86, 0, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
 (3, 'Stylo', 'Bic', 5.87, 0, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
 (4, 'Carte Postale', 'Gouvernement', 1.65, 0, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
-(5, 'Stylo', 'MontBlanc', 20.99, 0, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL);
+(5, 'Stylo', 'MontBlanc', 20.99, 0, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
+(6, 'Pain aux amandes', 'Harris', 1.27, 46, 3, '2021-06-25', 1, NULL, NULL, NULL, NULL, NULL),
+(7, 'Pain au beurre', 'Nestlé', 2.72, 89, 3, '2021-06-30', 2, NULL, NULL, NULL, NULL, NULL),
+(8, 'Glace', 'Nestlé', 2.84, 90, 2, '2021-07-08', NULL, NULL, NULL, 'Azote liquide', -150, NULL),
+(9, 'Glace', 'Tesla', 2.84, 90, 2, '2021-07-08', NULL, NULL, NULL, 'Vanille', 3, NULL),
+(10, 'Carte Postale', 'Hachette', 1.5, 30, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
+(11, 'Carte Postale', 'Marabout', 16, 2, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
+(12, 'Carte Postale', 'Breizh', 1.33, 26, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
+(13, 'Stylo Plume', 'Reynolds', 6, 75, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
+(14, 'Stylo effaçable', 'Frixion', 2.99, 55, 1, NULL, NULL, 'Rouge', 'Bille', NULL, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -217,7 +225,7 @@ ALTER TABLE `Panier`
 -- AUTO_INCREMENT pour la table `Produit`
 --
 ALTER TABLE `Produit`
-    MODIFY `refProd` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+    MODIFY `refProd` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Contraintes pour les tables déchargées
