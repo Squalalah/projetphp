@@ -11,7 +11,7 @@
                 $prep->execute();  // On execute la requête
 
                 $mesDataProduit = $prep->fetchObject(); //On récupère une seule ligne, et on la stocke dans $mesDataProduit.
-                $cartePostale = new CartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock, $mesDataProduit->type, $mesDataProduit->refProd);
+                $cartePostale = new CartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock, $mesDataProduit->type, $mesDataProduit->typeCP, $mesDataProduit->refProd);
                 //On créer la carte postale en renseignant les noms des colonnes de la table SQL ($mesDataProduit->libelle)
             }
 
@@ -34,7 +34,7 @@
                 while($mesDataProduit = $resultat->fetchObject()) // tant qu'il y a des lignes à récupérer dans la requête, on les stocke dans $mesDataProduits
                 {
                     $lesCartesPostales[] = new cartePostale($mesDataProduit->libelle, $mesDataProduit->marque, $mesDataProduit->prixUnitaire, $mesDataProduit->qteStock,
-                    $mesDataProduit->type, $mesDataProduit->refProd);
+                    $mesDataProduit->type, $mesDataProduit->typeCP, $mesDataProduit->refProd);
                     //On créer la carte postale en renseignant les noms des colonnes de la table SQL ($mesDataProduit->libelle)
                     //Et on place la carte postale créer dans le tableau $lesCartesPostales[]
                 }
