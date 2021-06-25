@@ -65,8 +65,8 @@ if(isset($_GET['message']))
           <input type="radio" id="rd1" class="inputAccordion" name="rd" <?php if($radio == 'rd1') { ?> checked <?php } ?>>
           <label class="tab-label" for="rd1">Les stylos</label>
           <div class="tab-content">
-            <?php 
-              include('../BO/tableauStylo.php')
+            <?php
+            include('include/tableauStylo.php')
             ?>
           </div>
         </div>
@@ -75,8 +75,8 @@ if(isset($_GET['message']))
           <input type="radio" id="rd2" class="inputAccordion" name="rd" <?php if($radio == 'rd2') { ?> checked <?php } ?>>
           <label class="tab-label" for="rd2">Les glaces</label>
           <div class="tab-content">
-            <?php 
-              include('../BO/tableauGlace.php')
+            <?php
+            include('include/tableauGlace.php')
             ?>
           </div>
         </div>
@@ -85,8 +85,8 @@ if(isset($_GET['message']))
           <input type="radio" id="rd3" class="inputAccordion" name="rd" <?php if($radio == 'rd3') { ?> checked <?php } ?>>
           <label class="tab-label" for="rd3">Les pains</label>
           <div class="tab-content">
-            <?php 
-              include('../BO/tableauPain.php')
+            <?php
+            include('include/tableauPain.php')
             ?>
           </div>
         </div>
@@ -95,8 +95,8 @@ if(isset($_GET['message']))
           <input type="radio" id="rd4" class="inputAccordion" name="rd" <?php if($radio == 'rd4') { ?> checked <?php } ?>>
           <label class="tab-label" for="rd4">Les cartes postales</label>
           <div class="tab-content">
-            <?php 
-              include('../BO/tableauCartePostale.php')
+            <?php
+            include('include/tableauCartePostale.php')
             ?>
           </div>
         </div>
