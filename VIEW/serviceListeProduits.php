@@ -24,18 +24,22 @@ if(isset($_POST['ajouter'])) {
   {
     case 1:{
       $typeObjet=DTOStylo::selectById($refProd);
+      $radio = 'rd1';
       break;
     }
     case 2: {
       $typeObjet=DTOGlace::selectById($refProd);
+      $radio = 'rd2';
       break;
     }
     case 3: {
       $typeObjet=DTOPain::selectById($refProd);
+      $radio = 'rd3';
       break;
     }
     case 4: {
       $typeObjet=DTOCartePostale::selectById($refProd);
+      $radio = 'rd4';
       break;
     }
   }
@@ -58,7 +62,7 @@ if(isset($_POST['ajouter'])) {
   $_SESSION['panier']=serialize($panier);
   //echo $_SESSION['panier'];
 
-  header('Location:listeProduits.php');
+  header('Location:listeProduits.php?radio=' . $radio . '');
 
   /*
   echo $_POST['produit'];
@@ -69,3 +73,4 @@ if(isset($_POST['ajouter'])) {
 
 // $_POST['produit'] = serialize($stylo); 
 ?>
+
