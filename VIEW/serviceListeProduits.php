@@ -61,7 +61,6 @@ if(isset($_POST['ajouter'])) {
   DTOProduit::deduireStock($refProd, $quantite);
   $_SESSION['panier']=serialize($panier);
   //echo $_SESSION['panier'];
-
   header('Location:listeProduits.php?radio=' . $radio . '');
 
   /*
