@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,7 +13,8 @@
   <title>Les Pro du I.T.</title>
 </head>
 
-<?php include('include/header.php'); ?>
+<?php
+include('include/header.php'); ?>
 
 <body>
 
@@ -113,9 +116,6 @@ if(isset($_GET['message']))
   <br>
 
   <div class="row">
-    <form method="post" action="detailPanier.php">
-      <input type="submit" name="panierTotal" value="voir le panier">
-    </form>
   </div>
 
 </body>

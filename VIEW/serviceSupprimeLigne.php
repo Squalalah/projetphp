@@ -22,6 +22,8 @@ if(isset($_POST['supprLigne'])||isset($_SESSION['panier'])) {
   $ligne = $panier->getLigne($keyLigne);
   DTOProduit::ajouterStock($ligne->getProduit()->getRefProd(), $ligne->getQuantite());
   $panier->supprimeLigne($keyLigne);
+
+
   $_SESSION['panier']=serialize($panier);
 }
 
