@@ -4,11 +4,10 @@
     <tr>
       <th>Libelle</th>
       <th>Marque</th>
-      <th>Prix Unitaire</th>
+      <th>Prix /u</th>
       <th>Stock</th>
-      <th>Type</th>
       <th>Poids</th>
-      <th>Date limite de consommation</th>
+      <th>Date limite conso.</th>
       <th>Panier</th>
     </tr>
   </thead>
@@ -19,9 +18,8 @@
         echo '<tr>';
           echo '<td>' . $pain->getLibelle() . '</td>';
           echo '<td>' . $pain->getMarque() . '</td>';
-          echo '<td>' . $pain->getPrixUnitaire() . '</td>';
+          echo '<td>' . $pain->getPrixUnitaire() . '€</td>';
           echo '<td>' . $pain->getQteStock() . '</td>';
-          echo '<td>' . $pain->getType() . '</td>';
           echo '<td>' . $pain->getPoids() . '</td>';
           echo '<td>' . $pain->getDateLimiteConso() . '</td>';
           echo '<td>';

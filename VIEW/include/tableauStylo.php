@@ -4,7 +4,7 @@
     <tr>
       <th>Libelle</th>
       <th>Marque</th>
-      <th>Prix Unitaire</th>
+      <th>Prix /u</th>
       <th>Stock</th>
       <th>Couleur</th>
       <th>Type Mine</th>
@@ -17,7 +17,7 @@
         echo '<tr>';
           echo '<td>' . $stylo->getLibelle() . '</td>';
           echo '<td>' . $stylo->getMarque() . '</td>';
-          echo '<td>' . $stylo->getPrixUnitaire() . '</td>';
+          echo '<td>' . $stylo->getPrixUnitaire() . '€</td>';
           echo '<td>' . $stylo->getQteStock() . '</td>';
           echo '<td>' . $stylo->getCouleur() . '</td>';
           echo '<td>' . $stylo->getTypeMine() . '</td>';

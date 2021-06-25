@@ -4,9 +4,9 @@
     <tr>
       <th>Libelle</th>
       <th>Marque</th>
-      <th>Prix Unitaire</th>
+      <th>Prix /u</th>
       <th>Stock</th>
-      <th>Type de carte postale</th>
+      <th>Catégorie</th>
       <th>Panier</th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
         echo '<tr>';
           echo '<td>' . $cartePostale->getLibelle() . '</td>';
           echo '<td>' . $cartePostale->getMarque() . '</td>';
-          echo '<td>' . $cartePostale->getPrixUnitaire() . '</td>';
+          echo '<td>' . $cartePostale->getPrixUnitaire() . '€</td>';
           echo '<td>' . $cartePostale->getQteStock() . '</td>';
           echo '<td>' . $cartePostale->getTypeCP() . '</td>';
           echo '<td>';

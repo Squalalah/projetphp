@@ -11,11 +11,16 @@ require_once('../BO/CartePostale.php');
 require_once('../BO/Auteur.php');
 require_once('../DTO/DTOPanier.php');
 require_once('../DTO/DTOLigne.php');
+require_once('../DTO/DTOProduit.php');
 
 
 if(isset($_POST['supprLigne'])||isset($_SESSION['panier'])) {
+
   $keyLigne=$_POST['supprLigne'];
   $panier=unserialize($_SESSION['panier']);
+  /* @var Ligne $ligne */
+  $ligne = $panier->getLigne($keyLigne);
+  DTOProduit::ajouterStock($ligne->getProduit()->getRefProd(), $ligne->getQuantite());
   $panier->supprimeLigne($keyLigne);
   $_SESSION['panier']=serialize($panier);
 }

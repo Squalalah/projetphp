@@ -55,6 +55,22 @@ class DTOProduit implements SELECT
         }
     }
 
+    public static function ajouterStock($refProd, $quantite) {
+        try {
+            $maCo = self::getBdd();
+            $req = "UPDATE produit SET qteStock=qteStock+? WHERE refProd=?";
+            $prep = $maCo->prepare($req);
+            $prep->bindParam(1, $quantite, PDO::PARAM_INT);
+            $prep->bindParam(2, $refProd, PDO::PARAM_INT);
+            $prep->execute();
+        }
+        catch (PDOException $e)
+        {
+            echo 'Erreur avec la BD!: ' .$e->getMessage() .'<br/>';
+            die();
+        }
+    }
+
     public static function selectAll()
     {
         try {
