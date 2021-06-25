@@ -1,9 +1,10 @@
 .intro {
     margin-top: 25vh;
+    text-align: center;
   }
   
-  .titreSite {
-    color: red;
-    font-size: 2.5em;
-  }
+.titreSite {
+color: red;
+font-size: 2.5em;
+}
   
