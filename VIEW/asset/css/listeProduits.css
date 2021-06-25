@@ -101,6 +101,10 @@ h2 {
   background: #1a252f;
 }
 
+table {
+  margin:auto;
+}
+
 .inputAccordion:checked + .tab-label {
   background: #1a252f;
 }
