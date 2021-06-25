@@ -26,9 +26,11 @@ $panier->calculMontant();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../asset/STYLE/style.css"/>
   <title>Les Pro du I.T.</title>
+  <link rel="stylesheet" href="asset/css/header.css">
 </head>
+
+<?php include('include/header.php'); ?>
 
 <table border = 1>
   <thead>
