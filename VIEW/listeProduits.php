@@ -1,4 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Les Pro du I.T.</title>
+</head>
+
+<body>
+
+  <?php
 
 require_once("../BO/Produit.php");
 require_once("../BO/Stylo.php");
@@ -19,6 +34,12 @@ $lesGlaces=DTOGlace::selectAll();
 $lesPains=DTOPain::selectAll();
 $lesCartesPostales=DTOCartePostale::selectAll();
 
+if(isset($_GET['radio']))
+{
+  $radio = $_GET['radio'];
+}
+else $radio = 'rd1';
+
 if(isset($_GET['message']))
 {
     switch($_GET['message'])
@@ -35,171 +56,64 @@ if(isset($_GET['message']))
         }
     }
 }
-
 ?>
-<form method="post" action="detailPanier.php">
-    <input type="submit" name="panierTotal" value="voir le panier">
-</form>
 
-<table border=1>
-  <caption>LES STYLOS</caption>
-  <thead>
-    <tr>
-      <th>Libelle</th>
-      <th>Marque</th>
-      <th>Prix Unitaire</th>
-      <th>Stock</th>
-      <th>Couleur</th>
-      <th>Type Mine</th>
-      <th>Panier</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-      foreach($lesStylos as $stylo){
-        echo '<tr>';
-          echo '<td>' . $stylo->getLibelle() . '</td>';
-          echo '<td>' . $stylo->getMarque() . '</td>';
-          echo '<td>' . $stylo->getPrixUnitaire() . '</td>';
-          echo '<td>' . $stylo->getQteStock() . '</td>';
-          echo '<td>' . $stylo->getCouleur() . '</td>';
-          echo '<td>' . $stylo->getTypeMine() . '</td>';
-          echo '<td>';
-            echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="1" min="1" max="' . $stylo->getQteStock() . '">
-                <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $stylo->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $stylo->getType() . '">
-            </form>';
-          echo '</td>';
-        echo '</tr>';
-      }
-    ?>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col">
+      <div class="tabs">
+        <div class="tab">
+          <input type="radio" id="rd1" class="inputAccordion" name="rd" <?php if($radio == 'rd1') { ?> checked <?php } ?>>
+          <label class="tab-label" for="rd1">Les stylos</label>
+          <div class="tab-content">
+            <?php 
+              include('../BO/tableauStylo.php')
+            ?>
+          </div>
+        </div>
 
-<br>
+        <div class="tab">
+          <input type="radio" id="rd2" class="inputAccordion" name="rd" <?php if($radio == 'rd2') { ?> checked <?php } ?>>
+          <label class="tab-label" for="rd2">Les glaces</label>
+          <div class="tab-content">
+            <?php 
+              include('../BO/tableauGlace.php')
+            ?>
+          </div>
+        </div>
 
-<table border=1>
-  <caption>LES PAINS</caption>
-  <thead>
-    <tr>
-      <th>Libelle</th>
-      <th>Marque</th>
-      <th>Prix Unitaire</th>
-      <th>Stock</th>
-      <th>Type</th>
-      <th>Poids</th>
-      <th>Date limite de consommation</th>
-      <th>Panier</th>
-    </tr>
-  </thead>
+        <div class="tab">
+          <input type="radio" id="rd3" class="inputAccordion" name="rd" <?php if($radio == 'rd3') { ?> checked <?php } ?>>
+          <label class="tab-label" for="rd3">Les pains</label>
+          <div class="tab-content">
+            <?php 
+              include('../BO/tableauPain.php')
+            ?>
+          </div>
+        </div>
 
-  <tbody>
-    <?php
-      foreach($lesPains as $pain){
-        echo '<tr>';
-          echo '<td>' . $pain->getLibelle() . '</td>';
-          echo '<td>' . $pain->getMarque() . '</td>';
-          echo '<td>' . $pain->getPrixUnitaire() . '</td>';
-          echo '<td>' . $pain->getQteStock() . '</td>';
-          echo '<td>' . $pain->getType() . '</td>';
-          echo '<td>' . $pain->getPoids() . '</td>';
-          echo '<td>' . $pain->getDateLimiteConso() . '</td>';
-          echo '<td>';
-            echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="1" min="1" max="' . $pain->getQteStock() . '">
-                <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $pain->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $pain->getType() . '">
-            </form>';
-          echo '</td>';
-        echo '</tr>';
-      }
-    ?>
-  </tbody>
-</table>
+        <div class="tab">
+          <input type="radio" id="rd4" class="inputAccordion" name="rd" <?php if($radio == 'rd4') { ?> checked <?php } ?>>
+          <label class="tab-label" for="rd4">Les cartes postales</label>
+          <div class="tab-content">
+            <?php 
+              include('../BO/tableauCartePostale.php')
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br>
 
-<br>
+  <div class="row">
+    <form method="post" action="detailPanier.php">
+      <input type="submit" name="panierTotal" value="voir le panier">
+    </form>
+  </div>
 
-<table border=1>
-  <caption>LES GLACES</caption>
-  <thead>
-    <tr>
-      <th>Libelle</th>
-      <th>Parfum</th>
-      <th>Marque</th>
-      <th>Prix Unitaire</th>
-      <th>Stock</th>
-      <th>Type</th>
-      <th>Température de conservation</th>
-      <th>Date limite de consommation</th>
-      <th>Panier</th>
-    </tr>
-  </thead>
+</body>
 
-  <tbody>
-    <?php
-      foreach($lesGlaces as $glace){
-        echo '<tr>';
-          echo '<td>' . $glace->getLibelle() . '</td>';
-          echo '<td>' . $glace->getParfum() . '</td>';
-          echo '<td>' . $glace->getMarque() . '</td>';
-          echo '<td>' . $glace->getPrixUnitaire() . '</td>';
-          echo '<td>' . $glace->getQteStock() . '</td>';
-          echo '<td>' . $glace->getType() . '</td>';
-          echo '<td>' . $glace->getTemperatureConservation() . '</td>';
-          echo '<td>' . $glace->getDateLimiteConso() . '</td>';
-          echo '<td>';
-            echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="1" min="1" max="' . $glace->getQteStock() . '">
-                <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $glace->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $glace->getType() . '">
-            </form>';
-          echo '</td>';
-        echo '</tr>';
-      }
-    ?>
-  </tbody>
-</table>
+</html>
 
-<br>
 
-<table border=1>
-  <caption>LES CARTES POSTALES</caption>
-  <thead>
-    <tr>
-      <th>Libelle</th>
-      <th>Marque</th>
-      <th>Prix Unitaire</th>
-      <th>Stock</th>
-      <th>Type de carte postale</th>
-      <th>Panier</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <?php
-      foreach($lesCartesPostales as $cartePostale){
-        echo '<tr>';
-          echo '<td>' . $cartePostale->getLibelle() . '</td>';
-          echo '<td>' . $cartePostale->getMarque() . '</td>';
-          echo '<td>' . $cartePostale->getPrixUnitaire() . '</td>';
-          echo '<td>' . $cartePostale->getQteStock() . '</td>';
-          echo '<td>' . $cartePostale->getTypeCP() . '</td>';
-          echo '<td>';
-            echo '<form method="post" action="serviceListeProduits.php">
-                <input type="number" name="quantite" value="1" min="1" max="' . $cartePostale->getQteStock() . '">
-                <input type="submit" name="ajouter" value="ajouter">
-                <input type="hidden" name="refProd" value="' . $cartePostale->getRefprod() . '">
-                <input type="hidden" name="type" value="' . $cartePostale->getType() . '">
-            </form>';
-          echo '</td>';
-        echo '</tr>';
-      }
-    ?>
-  </tbody>
-</table>
-
-<br>

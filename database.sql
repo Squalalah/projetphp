@@ -108,7 +108,7 @@ INSERT INTO `Ligne` (`quantite`, `produit_id`, `panier_id`) VALUES
 
 CREATE TABLE `Panier` (
                           `id` bigint(20) NOT NULL,
-                          `montant` int(11) NOT NULL
+                          `montant` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

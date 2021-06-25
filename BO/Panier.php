@@ -73,14 +73,8 @@ class Panier
         }
     }
 
-    public function supprimeLigne($objet) {
-        foreach($this->lesLignes as $ligne)
-        {
-            if($ligne === $objet)
-            {
-                unset($ligne);
-            }
-        }
+    public function supprimeLigne($keyLigne) {
+        unset($this->lesLignes[$keyLigne]);
     }
 
     public function calculMontant() {
