@@ -14,7 +14,7 @@ require_once('../DTO/DTOLigne.php');
 
 if(!isset($_POST['valider']) || !isset($_SESSION['panier'])) // Si on accepte à la page sans passer par le bouton "Valider le panier" ou que le panier n'existe pas
 {
-    header('Location: listeProduits.php?message=error');
+    header('Location: listeProduits.php?message=erreur');
     die(); //on redirige vers la page detailPanier.php puis on tue l'interpréteur pour ne pas executer le reste
 }
 /* @var Panier $panier */

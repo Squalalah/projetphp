@@ -11,7 +11,7 @@ require_once("../BO/ProduitPerissable.php");
 
 if(!isset($_SESSION['panier']))
 {
-    header('Location: listeProd uits.php');
+    header('Location: listeProduits.php');
 }
 
 $panier = unserialize($_SESSION['panier']);
@@ -26,7 +26,8 @@ $panier->calculMontant();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css"/>  
+  <link rel="stylesheet" type="text/css" href="../asset/STYLE/style.css"/>
+  <title>Les Pro du I.T.</title>
 </head>
 
 <table border = 1>
@@ -41,8 +42,7 @@ $panier->calculMontant();
   </thead>
   <tbody> 
     <?php
-      $lesLignes=$panier->getLignes();
-
+        $lesLignes=$panier->getLignes();
         foreach($lesLignes as $keyLigne=>$ligne){
           echo '<tr>';
             echo '<td>' . $ligne->getQuantite() . '</td>';

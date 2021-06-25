@@ -114,3 +114,16 @@ h2 {
   padding: 1em;
 }
 /*# sourceMappingURL=style.css.map */
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.succes {
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  margin: 5px 0 5px 0;
+}

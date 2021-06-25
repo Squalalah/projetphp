@@ -46,14 +46,18 @@ if(isset($_GET['message']))
 {
     switch($_GET['message'])
     {
-        case 'error':
+        case 'erreur':
         {
-            $text =  'Une erreur a eu lieu lors de la suppression du panier.<br>';
+            echo '<div class="alert">';
+            echo 'ERREUR: Tentative d\'accès à une page non autorisé';
+            echo '</div>';
             break;
         }
         case 'succes':
         {
-            $text = 'Votre panier a bien été ajouté en base de donnée.<br>';
+            echo '<div class="succes">';
+            echo 'SUCCES: Le panier a bien été validé avec succès!';
+            echo '</div>';
             break;
         }
     }
