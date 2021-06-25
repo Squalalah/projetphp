@@ -18,7 +18,8 @@
           echo '<td>' . $stylo->getLibelle() . '</td>';
           echo '<td>' . $stylo->getMarque() . '</td>';
           echo '<td>' . $stylo->getPrixUnitaire() . '€</td>';
-          echo '<td>' . $stylo->getQteStock() . '</td>';
+          if($stylo->getQteStock() == 0) echo '<td id="zerostock">' . $stylo->getQteStock() . '</td>';
+          else echo '<td>' . $stylo->getQteStock() . '</td>';
           echo '<td>' . $stylo->getCouleur() . '</td>';
           echo '<td>' . $stylo->getTypeMine() . '</td>';
           echo '<td>';

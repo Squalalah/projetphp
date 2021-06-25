@@ -19,7 +19,8 @@
           echo '<td>' . $pain->getLibelle() . '</td>';
           echo '<td>' . $pain->getMarque() . '</td>';
           echo '<td>' . $pain->getPrixUnitaire() . '€</td>';
-          echo '<td>' . $pain->getQteStock() . '</td>';
+          if($pain->getQteStock() == 0) echo '<td id="zerostock">' . $pain->getQteStock() . '</td>';
+          else echo '<td>' . $pain->getQteStock() . '</td>';
           echo '<td>' . $pain->getPoids() . '</td>';
           echo '<td>' . $pain->getDateLimiteConso() . '</td>';
           echo '<td>';

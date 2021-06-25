@@ -21,7 +21,8 @@
           echo '<td>' . $glace->getParfum() . '</td>';
           echo '<td>' . $glace->getMarque() . '</td>';
           echo '<td>' . $glace->getPrixUnitaire() . '€</td>';
-          echo '<td>' . $glace->getQteStock() . '</td>';
+          if($glace->getQteStock() == 0) echo '<td id="zerostock">' . $glace->getQteStock() . '</td>';
+          else echo '<td>' . $glace->getQteStock() . '</td>';
           echo '<td>' . $glace->getTemperatureConservation() . '</td>';
           echo '<td>' . $glace->getDateLimiteConso() . '</td>';
           echo '<td>';

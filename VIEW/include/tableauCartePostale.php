@@ -18,7 +18,8 @@
           echo '<td>' . $cartePostale->getLibelle() . '</td>';
           echo '<td>' . $cartePostale->getMarque() . '</td>';
           echo '<td>' . $cartePostale->getPrixUnitaire() . '€</td>';
-          echo '<td>' . $cartePostale->getQteStock() . '</td>';
+          if($cartePostale->getQteStock() == 0) echo '<td id="zerostock">' . $cartePostale->getQteStock() . '</td>';
+          else echo '<td>' . $cartePostale->getQteStock() . '</td>';
           echo '<td>' . $cartePostale->getTypeCP() . '</td>';
           echo '<td>';
             echo '<form method="post" action="serviceListeProduits.php">
