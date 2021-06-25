@@ -11,7 +11,7 @@ require_once("../BO/ProduitPerissable.php");
 
 if(!isset($_SESSION['panier']))
 {
-    header('Location: listeProduits.php');
+    header('Location: listeProd uits.php');
 }
 
 $panier = unserialize($_SESSION['panier']);
