@@ -43,13 +43,17 @@ $panier->calculMontant();
     <?php
       $lesLignes=$panier->getLignes();
 
-        foreach($lesLignes as $ligne){
+        foreach($lesLignes as $keyLigne=>$ligne){
           echo '<tr>';
             echo '<td>' . $ligne->getQuantite() . '</td>';
             echo '<td>' . $ligne->getProduit()->getLibelle() . '</td>';
             echo '<td>' . $ligne->getProduit()->getMarque() . '</td>';
             echo '<td>' . $ligne->getProduit()->getPrixUnitaire() . '</td>';
             echo '<td>' . $ligne->getPrix() . '</td>';
+            echo '<td> <form method="post" action="serviceSupprimeLigne.php">
+            <input type="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAmklEQVRIS+2V2xFAMBBFTypQAiXQgVKojFJ0QAs60AGTGa8Jscvgh3xmNvfs3iS7hoeXeVgfDSADCk8iOVAeJSkBYqAWqkyAxhfjAvqbLJt1XwfcVMAi47uDq1Zt9L4BmKp0bdvbv2TRD9h9+mu/f4s+YNGZBqj+aB0QnFEGWiByz/iaXTqOwlAJseJ2tFZagFJXDpNmsqwgRAx/AyoZAQW7RAAAAABJRU5ErkJggg==">
+            <input type="hidden" name="supprLigne" id="supprLigne" value="'. $keyLigne .'">
+            </form> </td>';
           echo '</tr>';
         }
     ?>
