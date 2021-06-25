@@ -98,7 +98,7 @@ CREATE TABLE `Ligne` (
 --
 
 INSERT INTO `Ligne` (`quantite`, `produit_id`, `panier_id`) VALUES
-(10, 4, 1);
+(1, 13, 5);
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `Panier` (
 --
 
 INSERT INTO `Panier` (`id`, `montant`) VALUES
-(1, 200);
+(5, 6);
 
 -- --------------------------------------------------------
 
@@ -145,20 +145,20 @@ CREATE TABLE `Produit` (
 --
 
 INSERT INTO `Produit` (`refProd`, `libelle`, `marque`, `prixUnitaire`, `qteStock`, `type`, `dateLimiteConso`, `poids`, `couleur`, `typeMine`, `parfum`, `temperature`, `typeCP`) VALUES
-(1, 'Pain au chocolat', 'Haribo', 5.45, 0, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
-(2, 'Glace', 'Fantasy', 1.86, 0, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
-(3, 'Stylo', 'Bic', 5.87, 0, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
-(4, 'Carte Postale', 'Gouvernement', 1.65, 0, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
-(5, 'Stylo', 'MontBlanc', 20.99, 0, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
-(6, 'Pain aux amandes', 'Harris', 1.27, 46, 3, '2021-06-25', 1, NULL, NULL, NULL, NULL, NULL),
-(7, 'Pain au beurre', 'Nestlé', 2.72, 89, 3, '2021-06-30', 2, NULL, NULL, NULL, NULL, NULL),
-(8, 'Glace', 'Nestlé', 2.84, 90, 2, '2021-07-08', NULL, NULL, NULL, 'Azote liquide', -150, NULL),
-(9, 'Glace', 'Tesla', 2.84, 90, 2, '2021-07-08', NULL, NULL, NULL, 'Vanille', 3, NULL),
-(10, 'Carte Postale', 'Hachette', 1.5, 30, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
-(11, 'Carte Postale', 'Marabout', 16, 2, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
-(12, 'Carte Postale', 'Breizh', 1.33, 26, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
-(13, 'Stylo Plume', 'Reynolds', 6, 75, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
-(14, 'Stylo effaçable', 'Frixion', 2.99, 55, 1, NULL, NULL, 'Rouge', 'Bille', NULL, NULL, NULL);
+(1, 'Pain au chocolat', 'Haribo', 5.45, 100, 3, '2021-06-22', 10, NULL, NULL, NULL, NULL, NULL),
+(2, 'Glace', 'Fantasy', 1.86, 100, 2, '2021-06-24', NULL, NULL, NULL, 'menthe', 6, NULL),
+(3, 'Stylo', 'Bic', 5.87, 100, 1, NULL, NULL, 'Bleu', 'Gras', NULL, NULL, NULL),
+(4, 'Carte Postale', 'Gouvernement', 1.65, 100, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
+(5, 'Stylo', 'MontBlanc', 20.99, 100, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
+(6, 'Pain aux amandes', 'Harris', 1.27, 100, 3, '2021-06-25', 1, NULL, NULL, NULL, NULL, NULL),
+(7, 'Pain au beurre', 'Nestlé', 2.72, 100, 3, '2021-06-30', 2, NULL, NULL, NULL, NULL, NULL),
+(8, 'Glace', 'Nestlé', 2.84, 100, 2, '2021-07-08', NULL, NULL, NULL, 'Azote liquide', -150, NULL),
+(9, 'Glace', 'Tesla', 2.84, 100, 2, '2021-07-08', NULL, NULL, NULL, 'Vanille', 3, NULL),
+(10, 'Carte Postale', 'Hachette', 1.5, 100, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Vacances'),
+(11, 'Carte Postale', 'Marabout', 16, 100, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
+(12, 'Carte Postale', 'Breizh', 1.33, 100, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Paysage'),
+(13, 'Stylo Plume', 'Reynolds', 6, 100, 1, NULL, NULL, 'Noir', 'Plume', NULL, NULL, NULL),
+(14, 'Stylo effaçable', 'Frixion', 2.99, 100, 1, NULL, NULL, 'Rouge', 'Bille', NULL, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -219,7 +219,7 @@ ALTER TABLE `Auteur`
 -- AUTO_INCREMENT pour la table `Panier`
 --
 ALTER TABLE `Panier`
-    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+    MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `Produit`
