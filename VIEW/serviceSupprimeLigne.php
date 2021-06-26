@@ -13,7 +13,6 @@ require_once('../DTO/DTOPanier.php');
 require_once('../DTO/DTOLigne.php');
 require_once('../DTO/DTOProduit.php');
 
-
 if(isset($_POST['indexLigne']) && isset($_SESSION['panier']) && isset($_POST['supprimeLigne'])) {
 
   $keyLigne=$_POST['indexLigne'];
@@ -44,6 +43,6 @@ elseif(isset($_POST['modifierQuantite']) && isset($_POST['quantite']) && isset($
   $_SESSION['panier'] = serialize($panier);
 }
 
-header('Location:detailPanier.php');
+header('Location: detailPanier.php');
 
 ?>
