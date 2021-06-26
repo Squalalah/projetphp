@@ -19,22 +19,8 @@ include('include/header.php'); ?>
 <body>
 
   <?php
-
-require_once("../BO/Produit.php");
-require_once("../BO/Stylo.php");
-require_once("../BO/Glace.php");
-require_once("../BO/Pain.php");
-require_once("../BO/CartePostale.php");
-require_once("../BO/Auteur.php");
-require_once("../BO/ProduitPerissable.php");
-require_once("../BO/Panier.php");
-require_once("../DTO/DTOStylo.php");
-require_once("../DTO/DTOGlace.php");
-require_once("../DTO/DTOPain.php");
-require_once("../DTO/DTOCartePostale.php");
-require_once("../DTO/DTOAuteur.php");
-
-$lesStylos=DTOStylo::selectAll();
+require_once('../autoload.php');
+$lesStylos=DTOStylo::selectAll(); // L'autoloader voit qu'on appelle la classe statisque DTOStylo, il va donc tenter de la charger tout seul dans autoload.php
 $lesGlaces=DTOGlace::selectAll();
 $lesPains=DTOPain::selectAll();
 $lesCartesPostales=DTOCartePostale::selectAll();

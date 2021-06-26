@@ -1,16 +1,6 @@
 <?php
 session_start();
-require_once('../BO/Produit.php');
-require_once('../BO/Glace.php');
-require_once('../BO/Stylo.php');
-require_once('../BO/Pain.php');
-require_once('../BO/ProduitPerissable.php');
-require_once('../BO/Panier.php');
-require_once('../BO/Ligne.php');
-require_once('../BO/CartePostale.php');
-require_once('../BO/Auteur.php');
-require_once('../DTO/DTOPanier.php');
-require_once('../DTO/DTOLigne.php');
+require_once('../autoload.php');
 
 if(!isset($_POST['valider']) || !isset($_SESSION['panier'])) // Si on accepte à la page sans passer par le bouton "Valider le panier" ou que le panier n'existe pas
 {
