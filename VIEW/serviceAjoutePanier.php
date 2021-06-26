@@ -17,6 +17,7 @@ if(!isset($_POST['valider']) || !isset($_SESSION['panier'])) // Si on accepte à
     header('Location: listeProduits.php?message=erreur');
     die(); //on redirige vers la page detailPanier.php puis on tue l'interpréteur pour ne pas executer le reste
 }
+
 /* @var Panier $panier */
 $panier = unserialize($_SESSION['panier']);
 DTOPanier::insert($panier); //Insere le panier dans la BDD (la fonction donne à $panier son ID SQL en meme temps)
