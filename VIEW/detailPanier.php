@@ -41,6 +41,7 @@ $panier->calculMontant();
       <th>Marque</th>
       <th>Prix Unitaire</th>
       <th>Total</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -55,7 +56,7 @@ $panier->calculMontant();
             echo '<td>' . $ligne->getProduit()->getPrixUnitaire() . ' €</td>';
             echo '<td>' . $ligne->getPrix() . ' €</td>';
             echo '<td> <form method="post" action="serviceSupprimeLigne.php">';
-            echo '<input type="number" name="quantite" value="'. $ligne->getQuantite() .'" min="1" max="' . $ligne->getProduit()->getQteStock() . '">';
+            echo '<input type="number" class="modifierInput" name="quantite" value="'. $ligne->getQuantite() .'" min="1" max="' . $ligne->getProduit()->getQteStock() . '">';
             echo '<input type="submit" name="modifierQuantite" value="modifier">';
             echo '<input type="image" name="supprimeLigne" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAmklEQVRIS+2V2xFAMBBFTypQAiXQgVKojFJ0QAs60AGTGa8Jscvgh3xmNvfs3iS7hoeXeVgfDSADCk8iOVAeJSkBYqAWqkyAxhfjAvqbLJt1XwfcVMAi47uDq1Zt9L4BmKp0bdvbv2TRD9h9+mu/f4s+YNGZBqj+aB0QnFEGWiByz/iaXTqOwlAJseJ2tFZagFJXDpNmsqwgRAx/AyoZAQW7RAAAAABJRU5ErkJggg==">
             <input type="hidden" name="indexLigne" id="supprLigne" value="'. $keyLigne .'">
