@@ -13,7 +13,7 @@ Type :
 
 ### 0.5 - Récupérer un repository
 + Se placer à l'endroit (dans le terminal) où l'on veut que le repository soit installé
-+ git clone [URL_repository.git] (sans les [])
++ git clone URL_a_recuperer.git
 
 
 ### 1- Récupérer les modifications du serveur : 
